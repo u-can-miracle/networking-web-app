@@ -1,0 +1,29 @@
+.looking-page{
+	padding-top: 50px;
+}
+
+.tag-clouds{
+
+}
+
+.tag-clouds--list{
+	margin-top: 16px;
+	padding: 9px 12px;
+	border: 1px solid $thirty-border-color;
+}
+
+.input__wide{
+	width: 100%;
+	max-width: 360px;
+}
+
+.button--position-center{
+	position: absolute;
+	left: 50%;
+	bottom: 10px;
+	transform: translate(-50%);
+}
+
+.ui.label > .delete.icon.tag__disabled {
+	cursor: default;
+}

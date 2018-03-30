@@ -1,0 +1,29 @@
+.search-results{
+	margin-top: 40
+}
+
+.result-row{
+	display: flex;
+	margin-bottom: 25px;
+	border: 1px solid $secondary-border-color;
+	border-radius: 2px;
+}
+
+.result-row__user-info{
+	width: 175px;
+	padding: 8px 10px;
+}
+.result-row__user-name{
+	margin-bottom: 6px;
+}
+
+.result-row__tag-container{
+	display: flex;
+	flex-grow: 10;
+}
+
+.result-row__tag-container-cell{
+	width: 50%;
+	padding: 12px 10px;
+	border-left: 1px solid $secondary-border-color;
+}

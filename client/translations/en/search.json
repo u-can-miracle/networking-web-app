@@ -1,0 +1,9 @@
+{
+	"userProfile": {
+		"title": {
+			"offer": "This user offers",
+			"looking": "This user looking for"
+		}
+	},
+	"searchBtnText": "Search matching"
+}

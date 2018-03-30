@@ -1,0 +1,2 @@
+export const SEND_USER_LOGOUT = 'SEND_USER_LOGOUT'
+export const USER_LOGGED_OUT = 'USER_LOGGED_OUT'
