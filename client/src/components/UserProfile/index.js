@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Grid } from 'semantic-ui-react'
 
-import TagList from '../TagList'
+import TagList from '../common/TagList'
 import { LOOKING, OFFER } from '../../constants'
 
 const propTypes = {

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Message } from 'semantic-ui-react'
 
-import SlideToggle from '../SlideToggle'
+import SlideToggle from '../common/SlideToggle'
 
 const propTypes = {
 	isRequestEnable: PropTypes.bool.isRequired,

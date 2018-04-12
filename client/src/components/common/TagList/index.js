@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Header } from 'semantic-ui-react'
 import classnames from 'classnames'
 
-import { LOOKING, OFFER } from '../../constants'
+import { LOOKING, OFFER } from '../../../constants'
 import Tag from './Tag'
 import TagForm from './TagForm'
 

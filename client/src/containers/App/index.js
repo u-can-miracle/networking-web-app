@@ -13,6 +13,7 @@ import Auth from '../../components/Auth'
 import NotFound from '../../components/NotFound'
 import Header from '../../components/Header'
 import Searching from '../../components/Searching'
+import Profile from '../../components/Profile'
 import loggedToLooking from '../../HOC/redirectLoggedToLooking'
 
 import userProfileTrans from '../../../translations/en/userProfile.json'
@@ -112,6 +113,18 @@ function App (props){
 							/>
 						</div>
 												)}
+				/>
+				<Route
+					path='/profile'
+					// eslint-disable-next-line react/jsx-no-bind
+					render={() => (
+							<Profile
+								profile={profile}
+								dispatch={dispatch}
+								isRequestEnable={isRequestEnable}
+							/>
+						)
+					}
 				/>
         <Route component={NotFound} />
       </Switch>

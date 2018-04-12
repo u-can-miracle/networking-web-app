@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { Icon, Label } from 'semantic-ui-react'
 import classnames from 'classnames'
 
-import { LOOKING, OFFER } from '../../constants'
-import { removeTagRequest } from '../../actions'
-import { getTagsNamesList } from '../../services/helpers'
+import { LOOKING, OFFER } from '../../../constants'
+import { removeTagRequest } from '../../../actions'
+import { getTagsNamesList } from '../../../services/helpers'
 
 const propTypes = {
 	dispatch: PropTypes.func.isRequired,

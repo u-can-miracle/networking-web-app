@@ -28,12 +28,14 @@ function Header ({ dispatch, isLogged, userName }){
 				isLogged
 				&&
 				<div>
-					<Label
-						as='span'
-						size='large'
-					>
-						Hi, {userName}
-					</Label>
+					<NavLink to='/profile'>
+						<Label
+							as='span'
+							size='large'
+						>
+							Hi, {userName}
+						</Label>
+					</NavLink>
 					<Button
 						compact
 						floated='right'

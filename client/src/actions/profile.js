@@ -1,15 +1,56 @@
 import * as constants from '../constants'
 
-export function addTagRequest(tagName, tagType, tagsNames){
+export function photoSaveRequest(photoBase64){
 	return {
-		type: constants.ADD_TAG_REQUEST,
-		payload: { tagName, tagType, tagsNames }
+		type: constants.PHOTO_SAVE_REQUEST,
+		payload: { photoBase64 }
 	}
 }
 
-export function removeTagRequest(userTagId, tagType, tagsNames){
+export function photoRemoveRequest(){
 	return {
-		type: constants.REMOVE_TAG_REQUEST,
-		payload: { userTagId, tagType, tagsNames }
+		type: constants.PHOTO_REMOVE_REQUEST
+	}
+}
+
+export function userNameUpdate(userName){
+	return {
+		type: constants.USER_NAME_UPDATE_REQUEST,
+		payload: { userName }
+	}
+}
+
+export function locationUpdate(location){
+	return {
+		type: constants.LOCATION_UPDATE_REQUEST,
+		payload: { location }
+	}
+}
+
+export function descriptionUpdate(description){
+	return {
+		type: constants.DESCRIPTION_UPDATE_REQUEST,
+		payload: { description }
+	}
+}
+
+export function contactCreate(contactType, contactValue){
+	return {
+		type: constants.CONTACT_CREATE_REQUEST,
+		payload: { contactType, contactValue }
+	}
+}
+
+export function contactRemove(id){
+	return {
+		type: constants.CONTACT_REMOVE_REQUEST,
+		payload: { id } // safety deleting
+	}
+}
+
+export function contactUpdate(contactId, newContactValue){
+	return {
+		type: constants.CONTACT_UPDATE_REQUEST,
+		payload: { contactId, newContactValue } // safety deleting
 	}
 }

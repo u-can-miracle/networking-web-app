@@ -15,7 +15,7 @@ export function* notifier(action){
 		payload: { message }
 	})
 
-	yield call(delay, 4500)
+	yield call(delay, 7500)
 
 	yield put({
 		type: DISABLE_NOTIFIER

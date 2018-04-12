@@ -1,0 +1,7 @@
+{
+	"uploadErrorMsg": "Error while upload file, please try again",
+	"notAllowedTypes": "file type is not allowed, allowed file types are",
+	"toLargeFileSize": "To large file, maximum file size is",
+	"kb": "kilobites",
+	"removeErrorMsg": "Error while removing photo, please try one more time"
+}

@@ -1,0 +1,46 @@
+.editable{
+	position: relative;
+}
+.editable--enable{
+
+}
+
+
+.editable--title{
+	margin-bottom: 3px;
+	font-size: 16px;
+	font-weight: 600;
+}
+.editable--content{
+	position: relative;
+}
+
+.editable--text-block{
+	position: relative;
+	z-index: 1;
+	min-width: 150px;
+	display: inline-block;
+	padding-bottom: 1px;
+	border-bottom: 1px solid $theme-color-secondary;
+	font-family: sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+
+	opacity: 0;
+	// z-index: 14;
+	// margin-top: 24px;
+	// color: red;
+}
+
+.editable--input-block{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+	padding-bottom: 4px;
+	border: none;
+	border-bottom: 1px solid $theme-color-secondary;
+	font-family: sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+}

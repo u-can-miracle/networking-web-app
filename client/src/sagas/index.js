@@ -7,8 +7,18 @@ import watchSendUserRegistrationData from './registration'
 import {
 	watchSendTag,
 	watchRemoveTag
-} from './profile'
+} from './tagList'
 import { watchSearchTags } from './search'
+import {
+	watchPhotoSave,
+	watchPhotoRemove,
+	watchUserNameUpdate,
+	watchLocationUpdate,
+	watchDescriptionUpdate,
+	watchContactCreate,
+	watchContactRemove,
+	watchContactUpdate
+} from './profile'
 
 export default function* rootSaga(){
   yield all([
@@ -18,6 +28,14 @@ export default function* rootSaga(){
 		watchSendUserRegistrationData(),
 		watchSendTag(),
 		watchRemoveTag(),
-		watchSearchTags()
+		watchSearchTags(),
+		watchPhotoSave(),
+		watchPhotoRemove(),
+		watchUserNameUpdate(),
+		watchLocationUpdate(),
+		watchDescriptionUpdate(),
+		watchContactCreate(),
+		watchContactRemove(),
+		watchContactUpdate()
   ])
 }

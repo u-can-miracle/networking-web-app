@@ -1,10 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { TransitionMotion, spring } from 'react-motion'
+import classnames from 'classnames'
 
-import { KEY } from '../../constants'
+import { KEY } from '../../../constants'
 
 const propTypes = {
+	className: PropTypes.string,
+	afterEnter: PropTypes.func,
 	children: PropTypes.element.isRequired,
 	isOpen: PropTypes.bool.isRequired,
 	openStyles: PropTypes.object.isRequired,
@@ -51,7 +54,18 @@ export default class SlideToggle extends React.Component {
 		return wrappedStyles
 	}
 
-  willEnter() {
+  willEnter(styleThatEntered) {
+		const firstProperty = Object.keys(styleThatEntered.style)[0]
+		const firstPropertyValue = styleThatEntered.style[firstProperty].val
+
+		const openProperty = Object.keys(this.props.openStyles)[0]
+		const openPropertyValue = this.props.openStyles[openProperty]
+
+		if(firstPropertyValue === openPropertyValue){
+			const { afterEnter } = this.props
+
+			afterEnter && afterEnter()
+		}
     return this.props.closeStyles
   }
 
@@ -61,6 +75,8 @@ export default class SlideToggle extends React.Component {
   }
 
   render() {
+		const { className } = this.props
+
     return (
       <TransitionMotion
         styles={this.state.data.map((item) => {
@@ -86,7 +102,7 @@ export default class SlideToggle extends React.Component {
 						})
 					)
 					return (
-						<div className='slide-toggle-wrapper'>
+						<div className={classnames('slide-toggle-wrapper', className)}>
 							{childrenWithStyles}
 						</div>
 					)

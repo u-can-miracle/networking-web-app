@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Button, Form } from 'semantic-ui-react'
 
-import ValidationInput from '../ValidationInput'
+import ValidationInput from '../common/ValidationInput'
 import { isValidEmail, isEmpty } from '../../services/validation'
 import {
 	getLengthWarning,

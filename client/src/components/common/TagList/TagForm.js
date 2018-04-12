@@ -5,10 +5,10 @@ import PropTypes from 'prop-types'
 import {
 	delayedNotifier,
 	addTagRequest
-} from '../../actions'
-import { THIS_TAG_ALREADY_EXIST } from '../../constants'
-import { LOOKING, OFFER } from '../../constants'
-import { getTagsNamesList } from '../../services/helpers'
+} from '../../../actions'
+import { THIS_TAG_ALREADY_EXIST } from '../../../constants'
+import { LOOKING, OFFER } from '../../../constants'
+import { getTagsNamesList } from '../../../services/helpers'
 
 const propTypes = {
 	dispatch: PropTypes.func.isRequired,

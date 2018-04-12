@@ -13,6 +13,15 @@ const propTypes = {
 	onFocus: PropTypes.func
 }
 
+const openStyles = {
+	opacity: 1,
+	left: -10
+}
+const closeStyles = {  // destinational styles
+	opacity: 0,
+	left: 2
+}
+
 export default class ValidationInput extends Component {
 	constructor(props){
 		super(props)
@@ -35,15 +44,6 @@ export default class ValidationInput extends Component {
 			onFocus,
 			validationMsg
 		} = this.props
-
-		const openStyles = {
-			opacity: 1,
-			left: -10
-		}
-		const closeStyles = {  // destinational styles
-			opacity: 0,
-			left: 2
-		}
 
 		return (
 			<div>

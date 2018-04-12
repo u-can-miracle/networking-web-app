@@ -16,7 +16,7 @@ export function* sendTag(action){
 	const { userTagId, tagId } = response
 
 	yield put({
-		type: constants.ADD_TAG_RESPONSE,
+		type: constants.TAG_ADD_RESPONSE,
 		payload: {
 			tagName: response.tagName,
 			userTagId,
@@ -26,7 +26,7 @@ export function* sendTag(action){
 	})
 }
 export function* watchSendTag(){
-  yield takeEvery(constants.ADD_TAG_REQUEST, sendTag)
+  yield takeEvery(constants.TAG_ADD_REQUEST, sendTag)
 }
 
 
@@ -40,10 +40,10 @@ export function* removeTag(action){
 	)
 
 	yield put({
-		type: constants.REMOVE_TAG_RESPONSE,
+		type: constants.TAG_REMOVE_RESPONSE,
 		payload: { userTagId, tagType }
 	})
 }
 export function* watchRemoveTag(){
-	yield takeEvery(constants.REMOVE_TAG_REQUEST, removeTag)
+	yield takeEvery(constants.TAG_REMOVE_REQUEST, removeTag)
 }

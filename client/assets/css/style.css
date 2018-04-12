@@ -67,6 +67,12 @@ a:hover, a:focus, a:active, button:hover, button:focus, button:active, input:hov
 /***  Usage  ***/
 /*
 .article {
+     @include center();
+}
+*/
+/***  Usage  ***/
+/*
+.article {
      @include clearfix();
 }
 */
@@ -29448,7 +29454,8 @@ a.ui.label {
 .heading {
   display: flex;
   justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+  margin-bottom: 30px; }
 
 .heading--title {
   margin-bottom: 0; }
@@ -29463,6 +29470,116 @@ a.ui.label {
   margin-left: auto;
   margin-right: auto; }
 
+.profile {
+  display: flex;
+  flex-wrap: row;
+  align-items: flex-start; }
+
+.profile--description {
+  padding-right: 15px;
+  flex-grow: 1; }
+
+.profile--contacts {
+  flex-basis: 320px; }
+
+/***  profile--description  ***/
+.profile--photo {
+  margin-right: 15px;
+  border-radius: 50%; }
+
+.profile--top-container {
+  display: flex;
+  margin-bottom: 25px; }
+
+.profile--user-info {
+  flex-grow: 1; }
+
+.profile--user-name {
+  margin-bottom: 18px; }
+
+.ui.form textarea.profile--user-description {
+  border-color: #ffca28; }
+
+/***  profile--contacts  ***/
+.contacts-list .contacts-list--add-btn.ui.icon.button {
+  margin-left: 12px;
+  padding: 8px 7px 5px 7px;
+  vertical-align: middle; }
+
+.contacts-list--btn-toggle {
+  left: 100%;
+  top: -1px;
+  display: inline-block;
+  vertical-align: top; }
+  .contacts-list--btn-toggle.slide-toggle-wrapper {
+    position: absolute; }
+
+.contacts-list--title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 15px; }
+
+.contacts-list--remove-item-btn {
+  position: absolute;
+  right: -19px;
+  top: -1px;
+  opacity: 0;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+
+.contacts-list--title-text {
+  display: inline-block;
+  margin-bottom: 0;
+  font-size: 17px; }
+
+.contacts-list--editable-wrapper {
+  display: flex;
+  margin-bottom: 10px; }
+  .contacts-list--editable-wrapper:last-child {
+    margin-bottom: 0; }
+
+.contacts-list--editable {
+  position: relative;
+  margin-bottom: 0; }
+  .contacts-list--editable .contacts-list--remove-item-btn {
+    opacity: 0; }
+  .contacts-list--editable:hover .contacts-list--remove-item-btn {
+    opacity: 1; }
+  .contacts-list--editable .editable--title {
+    position: relative;
+    display: inline-block; }
+  .contacts-list--editable .editable--text-block {
+    min-width: 0px; }
+  .contacts-list--editable .editable--text-block,
+  .contacts-list--editable .editable--input-block {
+    font-size: 13px; }
+
+.contacts-list--add-form {
+  position: relative;
+  margin-top: 20px;
+  padding: 12px 38px 12px 15px;
+  border: 1px solid #ffca28; }
+  .contacts-list--add-form .contacts-list--editable {
+    margin-bottom: 10px; }
+    .contacts-list--add-form .contacts-list--editable:last-child {
+      margin-bottom: 0; }
+
+.contacts-list--save-add-form-btn,
+.contacts-list--close-add-form-btn {
+  position: absolute;
+  top: 7px;
+  cursor: pointer; }
+
+.contacts-list--save-add-form-btn {
+  right: 20px; }
+
+.contacts-list--close-add-form-btn {
+  right: 4px; }
+
 .notifier {
   position: relative;
   z-index: 1000; }
@@ -29473,9 +29590,6 @@ a.ui.label {
     padding: 8px 12px;
     border-radius: 2px;
     background: #fff; }
-
-.ui.header.tag-list--title {
-  margin-bottom: 4px; }
 
 .search-results {
   margin-top: 40; }
@@ -29502,8 +29616,128 @@ a.ui.label {
   padding: 12px 10px;
   border-left: 1px solid #ccc; }
 
+.editable {
+  position: relative; }
+
+.editable--title {
+  margin-bottom: 3px;
+  font-size: 16px;
+  font-weight: 600; }
+
+.editable--content {
+  position: relative; }
+
+.editable--text-block {
+  position: relative;
+  z-index: 1;
+  min-width: 150px;
+  display: inline-block;
+  padding-bottom: 1px;
+  border-bottom: 1px solid #ffca28;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0; }
+
+.editable--input-block {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  padding-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid #ffca28;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 400; }
+
+.file-uploader {
+  position: relative;
+  font-size: 13px; }
+  .file-uploader:hover .file-uploader-remove-btn {
+    opacity: 0.5; }
+  .file-uploader .file-uploader-remove-btn {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 15;
+    opacity: 0;
+    cursor: pointer;
+    background: #fff;
+    color: red;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease; }
+    .file-uploader .file-uploader-remove-btn:hover {
+      opacity: 0.65; }
+    .file-uploader .file-uploader-remove-btn:before {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      left: 51%;
+      top: 47%;
+      font-size: 15px; }
+
+.file-uploader--input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0; }
+
+.file-uploader--file-uploader-image {
+  display: block; }
+
+.file-uploader--image-placeholder {
+  position: relative;
+  display: block;
+  width: 150px;
+  height: 150px;
+  padding: 10px 15px;
+  border: 2px solid #ededed;
+  overflow: hidden;
+  background: #ededed; }
+
+.file-uploader--placeholder {
+  width: 100%;
+  padding: 12px 15px;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); }
+
+.file-uploader--placeholder-text {
+  margin-bottom: 8px;
+  font-size: 13px;
+  text-transform: uppercase; }
+
+.file-uploader--enabled {
+  border: 2px dashed red; }
+
+.file-uploader--loaded-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5; }
+
+.file-uploader--img-load-notice {
+  text-align: center;
+  font-size: 12px; }
+
 .slide-toggle-wrapper {
   position: relative; }
+
+.ui.header.tag-list--title {
+  margin-bottom: 4px; }
 
 .label-wrapper {
   position: absolute;

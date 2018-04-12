@@ -1,0 +1,42 @@
+.profile{
+	display: flex;
+	flex-wrap: row;
+	align-items: flex-start;
+}
+
+.profile--description{
+	padding-right: 15px;
+	flex-grow: 1;
+}
+
+.profile--contacts{
+	flex-basis: 320px;
+}
+
+
+/***  profile--description  ***/
+.profile--photo{
+	// width: 150px;
+	// height: 150px;
+	margin-right: 15px;
+	// border: 1px solid $theme-color;
+	border-radius: 50%;
+}
+.profile--top-container{
+	display: flex;
+	margin-bottom: 25px;
+}
+.profile--user-info{
+	flex-grow: 1;
+}
+.profile--user-name{
+	margin-bottom: 18px;
+}
+.ui.form textarea{
+	&.profile--user-description{
+		border-color: $theme-color-secondary;
+	}
+}
+
+
+/***  profile--contacts  ***/

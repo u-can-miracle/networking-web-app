@@ -1,0 +1,17 @@
+{
+	"desription": {
+		"namePlaceholder": "Your name",
+		"locationPlaceholder": "Select your location",
+		"locationTitle": "Location",
+		"decriptionTitle": "description",
+		"describePlaceholder": "Describe about yourself and your expirience",
+		"loadImagePlaceholder": "Choose your photo",
+		"imgLoadNotice": "Click or drop your photo for edit"
+	},
+	"contacts": {
+		"title": "Contacts",
+		"addBtnTitle": "Add contact",
+		"contactMethod": "Add contact method - skype, email, etc",
+		"contact": "Your contact: skypeacc, me@mail.com, etc"
+	}
+}

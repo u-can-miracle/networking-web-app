@@ -1,0 +1,96 @@
+.contacts-list{
+	.contacts-list--add-btn.ui.icon.button{
+		margin-left: 12px;
+		padding: 8px 7px 5px 7px;
+		vertical-align: middle;
+	}
+}
+
+.contacts-list--btn-toggle{
+	left: 100%;
+	top: -1px;
+	display: inline-block;
+	vertical-align: top;
+	&.slide-toggle-wrapper{
+		position: absolute;
+	}
+}
+
+.contacts-list--title{
+	position: relative;
+	display: inline-block;
+	margin-bottom: 15px
+}
+
+.contacts-list--remove-item-btn{
+	position: absolute;
+	right: -19px;
+	top: -1px;
+	opacity: 0;
+	cursor: pointer;
+	@include transition();
+}
+
+.contacts-list--title-text{
+	display: inline-block;
+	margin-bottom: 0;
+	font-size: 17px;
+}
+
+.contacts-list--editable-wrapper{
+  display: flex;
+	margin-bottom: 10px;
+	&:last-child{
+		margin-bottom: 0;
+	}
+}
+.contacts-list--editable{
+	position: relative;
+	margin-bottom: 0;
+	.contacts-list--remove-item-btn{
+		opacity: 0;
+	}
+	&:hover{
+		.contacts-list--remove-item-btn{
+			opacity: 1;
+		}
+	}
+	.editable--title{
+		position: relative;
+		display: inline-block;
+	}
+	.editable--text-block{
+		min-width: 0px;
+	}
+	.editable--text-block,
+	.editable--input-block{
+		font-size: 13px;
+	}
+}
+
+.contacts-list--add-form{
+	position: relative;
+	margin-top: 20px;
+	padding: 12px 38px 12px 15px;
+	border: 1px solid $theme-color-secondary;
+	.contacts-list--editable{
+		margin-bottom: 10px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+}
+.contacts-list--save-add-form-btn,
+.contacts-list--close-add-form-btn{
+	position: absolute;
+	top: 7px;
+	cursor: pointer;
+}
+
+
+.contacts-list--save-add-form-btn{
+	right: 20px;
+}
+.contacts-list--close-add-form-btn{
+	right: 4px;
+}

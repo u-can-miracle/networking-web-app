@@ -10,3 +10,6 @@ export function isBrowser(){
 export function getTagsNamesList(tagsList){
 	return tagsList.map(tag => tag.tagName)
 }
+
+
+export function noop(){}
