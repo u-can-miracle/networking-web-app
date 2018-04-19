@@ -12,15 +12,15 @@ const initialState = {
 	emailMsg: '',
 	passMsg: '',
 
-	userName: 'userName',
+	// userName: 'userName',
 	email: '',
 	location: 'Kiev',
 	description: 'About me',
 
 	photoBase64: '',
 	contacts: [
-		{ id: 1, contactType: 'email', contactValue: 'cloudsmoonlight@gmail.com' },
-		{ id: 2, contactType: 'skype', contactValue: 'pitline3' }
+		// { id: 1, contactType: 'email', contactValue: 'cloudsmoonlight@gmail.com' },
+		// { id: 2, contactType: 'skype', contactValue: 'pitline3' }
 	],
 
 	isLogged: false,
@@ -62,11 +62,8 @@ export default function profileReducer(state = initialState, action){
 		case constants.USER_LOGGED_OUT:
 			return { ...state, isLogged: false }
 
-		case constants.PHOTO_SAVE_RESPONSE:
+		case constants.PHOTO_UPDATE_RESPONSE:
 			return { ...state, photoBase64: action.payload.photoBase64 }
-
-		case constants.PHOTO_REMOVE_RESPONSE:
-			return { ...state, photoBase64: '' }
 
 		case constants.USER_NAME_UPDATE_RESPONSE:
 			return { ...state, userName: action.payload.userName }

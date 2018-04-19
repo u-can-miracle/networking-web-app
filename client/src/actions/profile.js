@@ -1,8 +1,8 @@
 import * as constants from '../constants'
 
-export function photoSaveRequest(photoBase64){
+export function photoUpdateRequest(photoBase64){
 	return {
-		type: constants.PHOTO_SAVE_REQUEST,
+		type: constants.PHOTO_UPDATE_REQUEST,
 		payload: { photoBase64 }
 	}
 }

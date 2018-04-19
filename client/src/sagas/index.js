@@ -10,8 +10,7 @@ import {
 } from './tagList'
 import { watchSearchTags } from './search'
 import {
-	watchPhotoSave,
-	watchPhotoRemove,
+	watchPhotoUpdate,
 	watchUserNameUpdate,
 	watchLocationUpdate,
 	watchDescriptionUpdate,
@@ -29,8 +28,7 @@ export default function* rootSaga(){
 		watchSendTag(),
 		watchRemoveTag(),
 		watchSearchTags(),
-		watchPhotoSave(),
-		watchPhotoRemove(),
+		watchPhotoUpdate(),
 		watchUserNameUpdate(),
 		watchLocationUpdate(),
 		watchDescriptionUpdate(),

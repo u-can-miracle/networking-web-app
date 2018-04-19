@@ -15,31 +15,40 @@
 	position: relative;
 }
 
+.editable--loaded{
+	.editable--text-block{
+		opacity: 0;
+	}
+	.editable--input-block{
+		opacity: 1;
+	}
+}
 .editable--text-block{
 	position: relative;
 	z-index: 1;
 	min-width: 150px;
+	height: 22px;
 	display: inline-block;
-	padding-bottom: 1px;
+	padding-bottom: 0px;
 	border-bottom: 1px solid $theme-color-secondary;
 	font-family: sans-serif;
 	font-size: 14px;
 	font-weight: 400;
-
-	opacity: 0;
 	// z-index: 14;
 	// margin-top: 24px;
 	// color: red;
 }
 
 .editable--input-block{
+	height: 22px;
 	position: absolute;
 	left: 0;
-	top: 0;
+	top: 1px;
 	z-index: 10;
-	padding-bottom: 4px;
+	padding-bottom: 5px;
 	border: none;
 	border-bottom: 1px solid $theme-color-secondary;
+	opacity: 0;
 	font-family: sans-serif;
 	font-size: 14px;
 	font-weight: 400;

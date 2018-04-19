@@ -20,7 +20,8 @@ class EditedInput extends Component {
 		this.state = {
 			isEditedModeEnable: false,
 			width: 0,
-			value: props.value
+			value: props.value,
+			isLoaded: false
 		}
 
 		this.updateWidthBind = this.updateWidth.bind(this)
@@ -30,6 +31,9 @@ class EditedInput extends Component {
 
 	componentDidMount(){
 		this.updateWidth()
+		this.setState(() => ({
+			isLoaded: true
+		}))
 	}
 
 	updateWidth(){
@@ -63,7 +67,7 @@ class EditedInput extends Component {
 	}
 
 	render(){
-		const { isEditedModeEnable, width, value } = this.state
+		const { isEditedModeEnable, width, isLoaded, value } = this.state
 		const { children, className, placeholder, title } = this.props
 
 		return (
@@ -71,7 +75,8 @@ class EditedInput extends Component {
 				className={classnames(
 					className,
 					'editable',
-					{ 'editable--enable': isEditedModeEnable }
+					{ 'editable--enable': isEditedModeEnable },
+					{ 'editable--loaded': isLoaded }
 				)}
 			>
 				{

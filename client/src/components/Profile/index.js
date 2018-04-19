@@ -40,12 +40,11 @@ class Profile extends Component {
 	}
 
 	photoSave(photoBase64){
-		console.log('saveImg photoBase64', photoBase64)
-		this.props.dispatch(actions.photoSaveRequest(photoBase64))
+		this.props.dispatch(actions.photoUpdateRequest(photoBase64))
 	}
 
 	photoRemove(){
-		this.props.dispatch(actions.photoRemoveRequest())
+		this.props.dispatch(actions.photoUpdateRequest(''))
 	}
 
 	notifyError(msg){
@@ -84,15 +83,15 @@ class Profile extends Component {
 		} = profileTranslation
 		const {
 			description,
-			photo
 		} = this.state
-		const { /*photo,*/
+		const {
 			isRequestEnable,
 			dispatch,
 			profile: {
 				userName,
 				location,
-				contacts
+				contacts,
+				photoBase64
 			}
 		} = this.props
 
@@ -105,7 +104,7 @@ class Profile extends Component {
 								imageSuccessHandler={this.photoSaveBind}
 								imageErrorHandler={this.notifyErrorBind}
 								placeholderText={loadImagePlaceholder}
-								defaultImg={photo}
+								defaultImg={photoBase64}
 								width={180}
 								height={180}
 								removeHandler={this.photoRemoveBind}

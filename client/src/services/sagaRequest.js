@@ -12,9 +12,9 @@ export default function* sagaRequest(actionTypeResponse, payload, url){
 			{ ...payload }
 		)
 
-		const { isSuccessfull } = response
+		const { isSuccessful } = response
 
-		if(isSuccessfull){
+		if(isSuccessful){
 			yield put({
 				type: constants[actionTypeResponse],
 				payload: { ...response.payload }
