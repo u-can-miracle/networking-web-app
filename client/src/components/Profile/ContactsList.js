@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Button, Icon } from 'semantic-ui-react'
+import classnames from 'classnames'
 
 import * as actions from '../../actions'
 import EditedInput from '../common/EditedInput'
@@ -22,13 +23,6 @@ const closeStylesForm = {  // destinational styles
 	top: 0
 }
 
-
-const openStylesBtn = {
-	opacity: 1
-}
-const closeStylesBtn = {
-	opacity: 0
-}
 
 const propTypes = {
 	dispatch: PropTypes.func.isRequired,
@@ -111,26 +105,23 @@ class ContactsList extends Component {
 					>
 						{title}
 					</h5>
-					<SlideToggle
-						className='contacts-list--btn-toggle'
-						isOpen={!isAddStateEnable}
-						openStyles={openStylesBtn}
-						closeStyles={closeStylesBtn}
+					<Button
+						className={
+							classnames('contacts-list--add-btn', {
+								'contacts-list--enabled-btn': !isAddStateEnable
+							})
+						}
+						title={addBtnTitle}
+						size='mini'
+						icon
+						onClick={this.enableAddStateBind}
 					>
-						<Button
-							className='contacts-list--add-btn'
-							title={addBtnTitle}
-							size='mini'
-							icon
-							onClick={this.enableAddStateBind}
-						>
-							<Icon
-								size='small'
-								name='plus'
-								fitted={false}
-							/>
-						</Button>
-					</SlideToggle>
+						<Icon
+							size='small'
+							name='plus'
+							fitted={false}
+						/>
+					</Button>
 				</div>
 
 				<div className='contacts-list--contacts'>

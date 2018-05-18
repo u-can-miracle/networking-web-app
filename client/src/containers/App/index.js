@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Route, Switch } from 'react-router-dom'
-
+import { Route, Switch, withRouter } from 'react-router-dom'
 
 import Notifier from '../../components/Notifier'
 import Login from '../../components/Login'
@@ -24,6 +23,7 @@ const propTypes = {
 	confirming: PropTypes.object.isRequired,
 	profile: PropTypes.object.isRequired,
 	notifier: PropTypes.object.isRequired,
+	history: PropTypes.object.isRequired,
 	searchResults: PropTypes.array.isRequired
 }
 
@@ -35,7 +35,8 @@ function App (props){
     profile,
     profile: { isLogged },
     notifier: { isRequestEnable, message },
-		searchResults
+		searchResults,
+		history
   } = props
 
 	const MainPageComp = (
@@ -70,6 +71,7 @@ function App (props){
         isLogged={isLogged}
         dispatch={dispatch}
 				userName={profile.userName}
+				login={profile.login}
       />
       <Switch>
         <Route
@@ -77,6 +79,7 @@ function App (props){
           path='/'
           // eslint-disable-next-line react/jsx-no-bind
           render={() => (
+						// TODO: replace with landing explanation page
 													AuthToLooking(isLogged)
                         )}
         />
@@ -110,6 +113,7 @@ function App (props){
 								isRequestEnable={isRequestEnable}
 								userTags={profile.tags}
 								searchResults={searchResults}
+								history={history}
 							/>
 						</div>
 												)}
@@ -143,9 +147,11 @@ function mapDispatchToProps(dispatch){
   }
 }
 
-export default connect(
-  // https://github.com/ReactTraining/react-router/issues/3536
-  mapStateToProps, mapDispatchToProps, null, { pure:false }
-)(App)
+export default withRouter(
+	connect(
+		// https://github.com/ReactTraining/react-router/issues/3536
+		mapStateToProps, mapDispatchToProps, null, { pure:false }
+	)(App)
+)
 
 App.propTypes = propTypes

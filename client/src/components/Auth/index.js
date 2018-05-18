@@ -11,12 +11,19 @@ function Auth (){
 				</Button>
 			</div>
 			<Button.Group className='navigation__page--social-group'>
-				<Button color='red'>
-					<a href='/auth/google'>Sign In with Google</a>
+				<Button
+					as='a'
+					color='red'
+					href='/auth/google'
+				>
+					Sign In with Google
 				</Button>
 				<Button.Or />
-				<Button color='blue'>
-					<a href='/auth/facebook'>Login with Facebook</a>
+				<Button
+					color='blue'
+					href='/auth/facebook'
+				>
+					Login with Facebook
 				</Button>
 			</Button.Group>
 		</div>

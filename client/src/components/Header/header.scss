@@ -8,3 +8,7 @@
 .heading--title{
 	margin-bottom: 0;
 }
+
+.heading--profile-btn{
+	@include hoverAsBtn();
+}

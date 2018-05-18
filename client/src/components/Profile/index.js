@@ -68,6 +68,9 @@ class Profile extends Component {
 	}
 
 	descriptionUpdate(){
+		if(this.props.profile.description === this.state.description){
+			return
+		}
 		const { description } = this.state
 		this.props.dispatch(actions.descriptionUpdate(description))
 	}

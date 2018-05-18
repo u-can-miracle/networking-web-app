@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Button } from 'semantic-ui-react'
 
@@ -24,13 +24,27 @@ const propTypes = {
 	searchResults: PropTypes.array.isRequired
 }
 
-function Searching({
-	dispatch,
-	isRequestEnable,
-	userTags,
-	searchResults
-}){
-	function buildResultsList(){
+class Searching extends Component {
+	constructor(props){
+		super(props)
+
+		this.buildResultsListBind = this.buildResultsList.bind(this)
+		this.searchMatchingBind = this.searchMatching.bind(this)
+	}
+
+	componentDidMount(){
+		if(this.props.history.location.hash === '#_=_'){
+			this.props.history.replace('/main')
+		}
+	}
+
+	buildResultsList(){
+		const {
+			isRequestEnable,
+			searchResults,
+			dispatch
+		} = this.props
+
 		return searchResults.map(result => {
 			const userData = {
 				userId: result.userId,
@@ -52,7 +66,12 @@ function Searching({
 		})
 	}
 
-	function searchMatching(){
+	searchMatching(){
+		const {
+			userTags,
+			dispatch
+		} = this.props
+
 		const tags = {
 			[OFFER]: getTagsNamesList(userTags[OFFER]),
 			[LOOKING]: getTagsNamesList(userTags[LOOKING])
@@ -61,21 +80,23 @@ function Searching({
 		dispatch(searchTags(tags))
 	}
 
-	return	(
-		<div className='search-results'>
-			<Button
-				compact
-				floated='right'
-				onClick={searchMatching}
-			>
-				{searchTrans.searchBtnText}
-			</Button>
+	render(){
+		return (
+			<div className='search-results'>
+				<Button
+					compact
+					floated='right'
+					onClick={this.searchMatchingBind}
+				>
+					{searchTrans.searchBtnText}
+				</Button>
 
-			<div>
-				{buildResultsList()}
+				<div>
+					{this.buildResultsListBind()}
+				</div>
 			</div>
-		</div>
-	)
+		)
+	}
 }
 
 Searching.propTypes = propTypes

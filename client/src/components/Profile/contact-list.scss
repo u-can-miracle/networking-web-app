@@ -6,6 +6,15 @@
 	}
 }
 
+.contacts-list--add-btn{
+	opacity: 0;
+	@include transition();
+}
+
+.contacts-list--enabled-btn{
+	opacity: 1;
+}
+
 .contacts-list--btn-toggle{
 	left: 100%;
 	top: -1px;

@@ -9,8 +9,8 @@ export default function clientApi(app) {
 	})
 
 	app.post('/get-app-html', (req, res) => {
-		const { url, initialPartialState } = req.body
-		const AppHtml = getAppHtml(url, initialPartialState)
+		const { appUrl, initialPartialState } = req.body
+		const AppHtml = getAppHtml(appUrl, initialPartialState)
 
 		res.json({ AppHtml })
 	})
