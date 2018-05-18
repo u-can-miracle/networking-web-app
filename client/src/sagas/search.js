@@ -5,7 +5,7 @@ import * as api from '../services/api'
 
 export function* searchTags(action){
 	const tags = action.payload
-	const matchedUsersResponse = yield call(api.request, '/search-tags', { tags })
+	const matchedUsersResponse = yield call(api.request, '/tag/search', { tags })
 
 	yield put({
 		type: constants.SEARCH_TAGS_RESPONSE,

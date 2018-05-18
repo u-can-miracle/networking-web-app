@@ -70,6 +70,7 @@ function App (props){
         isLogged={isLogged}
         dispatch={dispatch}
 				userName={profile.userName}
+				login={profile.login}
       />
       <Switch>
         <Route
@@ -77,6 +78,7 @@ function App (props){
           path='/'
           // eslint-disable-next-line react/jsx-no-bind
           render={() => (
+						// TODO: replace with landing explanation page
 													AuthToLooking(isLogged)
                         )}
         />

@@ -8,10 +8,11 @@ import { sendUserLoguot } from '../../actions'
 const propTypes = {
 	dispatch: PropTypes.func.isRequired,
 	userName: PropTypes.string,
+	login: PropTypes.string,
 	isLogged: PropTypes.bool.isRequired
 }
 
-function Header ({ dispatch, isLogged, userName }){
+function Header ({ dispatch, isLogged, userName, login }){
 	function logout (){
 		dispatch(sendUserLoguot())
 	}
@@ -33,7 +34,7 @@ function Header ({ dispatch, isLogged, userName }){
 							as='span'
 							size='large'
 						>
-							Hi, {userName}
+							Hi, {userName || login}
 						</Label>
 					</NavLink>
 					<Button

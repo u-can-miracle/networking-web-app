@@ -1,8 +1,11 @@
 import React from 'react'
-import { Tab } from 'semantic-ui-react'
+import { Tab, Button, Icon } from 'semantic-ui-react'
 
 import LoginForm from './LoginForm'
 import RegForm from './RegForm'
+import loginTranslation from '../../../translations/en/login'
+
+const { login: { fbLogin } } = loginTranslation
 
 function Login (props){
 	const panes = [
@@ -27,9 +30,19 @@ function Login (props){
 	return (
 		<div className='login__container'>
 			<Tab
+				className='login__tab-wrapper'
 				menu={{ secondary: true, pointing: true }}
 				panes={panes}
 			/>
+
+
+			<Button
+				className='login__fb-btn'
+				color='blue'
+				href='/auth/facebook'
+			>
+				<Icon name='facebook' /> {fbLogin}
+			</Button>
 		</div>
 	)
 }

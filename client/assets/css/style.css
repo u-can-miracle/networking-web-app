@@ -29470,6 +29470,12 @@ a.ui.label {
   margin-left: auto;
   margin-right: auto; }
 
+.login__tab-wrapper {
+  margin-bottom: 15px; }
+
+.login__fb-btn {
+  float: right; }
+
 .profile {
   display: flex;
   flex-wrap: row;
@@ -29505,6 +29511,17 @@ a.ui.label {
   margin-left: 12px;
   padding: 8px 7px 5px 7px;
   vertical-align: middle; }
+
+.contacts-list--add-btn {
+  opacity: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+
+.contacts-list--enabled-btn {
+  opacity: 1; }
 
 .contacts-list--btn-toggle {
   left: 100%;

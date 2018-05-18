@@ -12,10 +12,10 @@ const initialState = {
 	emailMsg: '',
 	passMsg: '',
 
-	// userName: 'userName',
+	userName: '',
 	email: '',
-	location: 'Kiev',
-	description: 'About me',
+	location: '',
+	description: '',
 
 	photoBase64: '',
 	contacts: [
