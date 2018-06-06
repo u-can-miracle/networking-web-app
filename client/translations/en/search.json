@@ -5,5 +5,7 @@
 			"looking": "This user looking for"
 		}
 	},
-	"searchBtnText": "Search matching"
+	"searchBtnText": "Search matching",
+	"showDetails": "see user details",
+	"noSearchResults": "There are no one mathing for your tags"
 }

@@ -2,19 +2,22 @@ import {
 	SEARCH_TAGS_RESPONSE
 } from '../constants'
 
-const initialState = []
+const initialState = {
+	isSearchBtnClicked: false,
+	searchResults: []
+}
 
 export default function searchReducer(state = initialState, action){
 	switch (action.type) {
 		case SEARCH_TAGS_RESPONSE:
-			return action.payload
+			return { ...state, searchResults: action.payload, isSearchBtnClicked: true }
 
 		default:
 			return state
 	}
 }
 
-// searchResult: [
+// searchResults: [
 // 	{
 // 		userId: 1,
 // 		login: 'userName1',

@@ -6,6 +6,9 @@ import { Icon } from 'semantic-ui-react'
 import profileTranslation from '../../../../translations/en/profile'
 import uploadTranslation from '../../../../translations/en/upload'
 
+
+const { desription: { imgLoadNotice } } = profileTranslation
+
 const kBites = 100
 
 const defaultProps = {
@@ -43,6 +46,7 @@ class FileUploader extends Component {
 		this.onDragLeaveBind = this.onDragLeave.bind(this)
 		this.onLoadImgBind = this.onLoadImg.bind(this)
 		this.removePhotoHandlerBind = this.removePhotoHandler.bind(this)
+		this.checkClickBind = this.checkClick.bind(this)
 	}
 
 	onDragEnter(){
@@ -160,16 +164,22 @@ class FileUploader extends Component {
 		}
 	}
 
+	checkClick(ev){
+		if(!this.props.isUploadEnable){
+			ev.preventDefault()
+		}
+	}
+
 	render(){
 		const {
 			className,
 			width,
 			height,
 			placeholderText,
-			defaultImg
+			defaultImg,
+			isUploadEnable
 		} = this.props
 		const { isDragEnable } = this.state
-		const { desription: { imgLoadNotice } } = profileTranslation
 
 		return (
 			<form
@@ -224,6 +234,7 @@ class FileUploader extends Component {
 						// eslint-disable-next-line react/jsx-no-bind
 						ref={(input) => { this.photoInputRef = input	}}
 						onChange={this.onLoadImgBind}
+						onClick={this.checkClickBind}
 						name='file'
 						type='file'
 						className='file-uploader--input'
@@ -232,7 +243,7 @@ class FileUploader extends Component {
 				<div
 					className='file-uploader--img-load-notice'
 				>
-					{imgLoadNotice}
+					{isUploadEnable && imgLoadNotice}
 				</div>
 			</form>
 		)

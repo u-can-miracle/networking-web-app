@@ -11,15 +11,26 @@ export function* sendUserLoginData(action){
 
 	const {
 		confirming: { isItConfirmingProcess },
-		profile
+		profileCurrentUser,
+		loginRegistrDetails
 	} = result
 
-	if(!profile.isEmailWrong && !profile.isPassWrong){
+	const { isEmailWrong, isPassWrong } = loginRegistrDetails
+	const isLogginSuccessfull = !isEmailWrong && !isPassWrong
+
+	if(isLogginSuccessfull){
 		if(isItConfirmingProcess){
 			yield put({
 				type: constants.ENABLE_CONFIRM_PROCCESS
 			})
 		}
+
+		yield put({
+			type: constants.PROFILE_CURRENT_USER_LOAD,
+			payload: {
+				profileCurrentUser
+			}
+		})
 
 		history.push('/main')
 	}
@@ -27,7 +38,7 @@ export function* sendUserLoginData(action){
 	yield put({
     type: constants.GET_USER_LOGIN_RESPONSE,
     payload: {
-			profile
+			loginRegistrDetails
 		}
   })
 }

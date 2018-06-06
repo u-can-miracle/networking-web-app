@@ -10,7 +10,7 @@ import SlideToggle from '../common/SlideToggle'
 import profileTranslation from '../../../translations/en/profile'
 
 const {
-	contacts: { title, addBtnTitle, contactMethod, contact }
+	contacts: { title, addBtnTitle, contactMethod, contact, noContacts }
 } = profileTranslation
 
 
@@ -26,6 +26,7 @@ const closeStylesForm = {  // destinational styles
 
 const propTypes = {
 	dispatch: PropTypes.func.isRequired,
+	isEditable: PropTypes.bool.isRequired,
 	contactsList: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     contactType: PropTypes.string.isRequired,
@@ -92,8 +93,39 @@ class ContactsList extends Component {
 		}
 	}
 
+	buildContacnts(){
+		const { contactsList, isEditable } = this.props
+
+		return contactsList.map(oneContact => (
+				<div
+					className='contacts-list--editable-wrapper'
+					key={oneContact.id}
+				>
+					<EditedInput
+						className='contacts-list--editable'
+						title={oneContact.contactType}
+						value={oneContact.contactValue}
+						isEditable={isEditable}
+						// eslint-disable-next-line react/jsx-no-bind
+						onBlur={this.contactUpdate.call(this, oneContact.id)}
+					>
+						<Icon
+							className='contacts-list--remove-item-btn'
+							size='small'
+							color='red'
+							name='remove'
+							fitted={false}
+							// eslint-disable-next-line react/jsx-no-bind
+							onClick={this.contactRemove.bind(this, oneContact.id)}
+						/>
+					</EditedInput>
+				</div>
+			)
+		)
+	}
+
 	render(){
-		const { contactsList } = this.props
+		const { contactsList, isEditable } = this.props
 		const { isAddStateEnable, contactType, contactValue } = this.state
 
 		return (
@@ -105,52 +137,37 @@ class ContactsList extends Component {
 					>
 						{title}
 					</h5>
-					<Button
-						className={
-							classnames('contacts-list--add-btn', {
-								'contacts-list--enabled-btn': !isAddStateEnable
-							})
-						}
-						title={addBtnTitle}
-						size='mini'
-						icon
-						onClick={this.enableAddStateBind}
-					>
-						<Icon
-							size='small'
-							name='plus'
-							fitted={false}
-						/>
-					</Button>
+					{
+						isEditable
+							&&
+						<Button
+							className={
+								classnames('contacts-list--add-btn', {
+									'contacts-list--enabled-btn': !isAddStateEnable
+								})
+							}
+							title={addBtnTitle}
+							size='mini'
+							icon
+							onClick={this.enableAddStateBind}
+						>
+							<Icon
+								size='small'
+								name='plus'
+								fitted={false}
+							/>
+						</Button>
+					}
+
 				</div>
 
 				<div className='contacts-list--contacts'>
 					{
-						contactsList.map(oneContact => (
-								<div
-									className='contacts-list--editable-wrapper'
-									key={oneContact.id}
-								>
-									<EditedInput
-										className='contacts-list--editable'
-										title={oneContact.contactType}
-										value={oneContact.contactValue}
-										// eslint-disable-next-line react/jsx-no-bind
-										onBlur={this.contactUpdate.call(this, oneContact.id)}
-									>
-										<Icon
-											className='contacts-list--remove-item-btn'
-											size='small'
-											color='red'
-											name='remove'
-											fitted={false}
-											// eslint-disable-next-line react/jsx-no-bind
-											onClick={this.contactRemove.bind(this, oneContact.id)}
-										/>
-									</EditedInput>
-								</div>
-							)
-						)
+						contactsList.length
+							?
+						this.buildContacnts()
+							:
+						noContacts
 					}
 				</div>
 
@@ -181,12 +198,14 @@ class ContactsList extends Component {
 							className='contacts-list--editable'
 							placeholder={contactMethod}
 							value={contactType}
+							isEditable={isEditable}
 							onBlur={this.setContactType}
 						/>
 						<EditedInput
 							className='contacts-list--editable'
 							placeholder={contact}
 							value={contactValue}
+							isEditable={isEditable}
 							onBlur={this.setContactValue}
 						/>
 					</div>

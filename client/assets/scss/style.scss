@@ -7,15 +7,11 @@
 @import 'semantic/custom-varialbles';
 @import 'semantic/fonts';
 @import 'semantic/all';
+@import 'semantic/override';
 
 
-// Common
 @import 'common';
-
-// Theme
-@import 'theme/layout';
-@import 'theme/form';
-
+@import 'layout';
 
 
 // Components
@@ -26,17 +22,11 @@
 @import '../../src/components/Profile/contact-list';
 @import '../../src/components/Notifier/notifier';
 @import '../../src/components/Searching/search-result';
+@import '../../src/components/UserTags/user-tags';
 
 @import '../../src/components/common/EditedInput/edited-input';
 @import '../../src/components/common/FileUploader/file-uploader';
 @import '../../src/components/common/SlideToggle/slide-toggle';
 @import '../../src/components/common/TagList/tag-list';
 @import '../../src/components/common/ValidationInput/validation-input';
-
-// @import '../../src/components/TagList/tag-list';
-// @import '../../src/components/Looking/looking';
-
-body{
-  background: #fefefe;
-  // background: blue;
-}
+@import '../../src/components/common/ProfileLink/profile-link';

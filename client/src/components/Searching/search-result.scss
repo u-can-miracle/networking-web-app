@@ -2,6 +2,21 @@
 	margin-top: 40
 }
 
+.search-results--single-result{
+	margin-bottom: 25px;
+}
+
+.search-results--empty-result{
+
+}
+
+.search-results--search-btn{
+	&.ui.button{
+		display: table;
+		margin: 0 auto 25px;
+	}
+}
+
 .result-row{
 	display: flex;
 	margin-bottom: 25px;

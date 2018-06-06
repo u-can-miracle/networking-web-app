@@ -1,0 +1,32 @@
+.ui.celled.grid {
+	margin-top: 7px;
+}
+
+.ui.form{
+	.field{
+		margin-bottom: 24px;
+	}
+}
+
+a.ui.label{
+	cursor: default;
+}
+
+.ui[class*="vertically divided"].grid > .column:not(.row),
+.ui[class*="vertically divided"].grid > .row > .column{
+	&.column--no-margin-bottom{
+		margin-bottom: 0;
+	}
+	&.column--padding-bottom{
+		padding-bottom: 60px;
+	}
+}
+
+.row--relative{
+	position: relative;
+}
+
+.ui.basic.buttons .button,
+.ui.basic.button{
+	background: $primary-bg!important;
+}

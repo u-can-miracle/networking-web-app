@@ -1,7 +1,13 @@
-.profile{
+.profile--tags{
+	max-width: 920px;
+	margin-left: 0;
+}
+
+.profile--info{
 	display: flex;
 	flex-wrap: row;
 	align-items: flex-start;
+	margin-bottom: 30px;
 }
 
 .profile--description{
@@ -29,13 +35,30 @@
 .profile--user-info{
 	flex-grow: 1;
 }
-.profile--user-name{
+.profile--user-detail{
+	display: flex;
 	margin-bottom: 18px;
 }
-.ui.form textarea{
-	&.profile--user-description{
-		border-color: $theme-color-secondary;
+.profile--user-email-title,
+.profile--user-description--title{
+	margin-right: 8px;
+	font-weight: 600;
+	font-size: 16px;
+}
+.ui.form {
+	.profile--user-description{
+		min-height: 75px;
+    margin-top: 5px;
+		border: 1px solid $theme-color-secondary;
 	}
+}
+
+.profile--user-description--readonly{
+	min-height: 75px;
+	margin-top: 5px;
+	padding: 11px 14px;
+	border: 1px solid $secondary-border-color;
+	border-radius: 4px;
 }
 
 

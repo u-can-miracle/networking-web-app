@@ -23,7 +23,7 @@ import * as actions from '../../actions'
 
 const propTypes = {
 	dispatch: PropTypes.func.isRequired,
-	profile: PropTypes.object.isRequired
+	loginRegistrDetails: PropTypes.object.isRequired
 }
 
 export default class LoginForm extends React.Component {
@@ -53,7 +53,7 @@ export default class LoginForm extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps){
-		const { isEmailWrong, isPassWrong, emailMsg, passMsg } = nextProps.profile
+		const { isEmailWrong, isPassWrong, emailMsg, passMsg } = nextProps.loginRegistrDetails
 
 		this.setState((prevState, props) => {
 			return {

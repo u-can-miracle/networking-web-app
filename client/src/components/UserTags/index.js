@@ -1,9 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Grid } from 'semantic-ui-react'
+import classnames from 'classnames'
 
 import TagList from '../common/TagList'
+import ProfileLink from '../common/ProfileLink'
 import { LOOKING, OFFER } from '../../constants'
+import searchTranslation from '../../../translations/en/search'
+
+const { showDetails } = searchTranslation
 
 const propTypes = {
 	userData: PropTypes.shape({
@@ -30,7 +35,7 @@ const propTypes = {
   }).isRequired
 }
 
-function UserInfo(props){
+function UserTags(props){
 	const {
 		userData,
 		dispatch,
@@ -38,16 +43,23 @@ function UserInfo(props){
 		isEditable,
 		title,
 		tags,
-		tags: { offer, looking }
+		tags: { offer, looking },
+		className
 	} = props
 
 	return (
-		<div className='max-with-limit'>
+		<div className={classnames('max-with-limit', className)}>
 			{
 				userData
 				&&
 				<div>
-					{userData.login} {userData.email}
+					<span className='user-tags--login'>{userData.login}</span>
+					<ProfileLink
+						dispatch={dispatch}
+						profileId={userData.userId}
+					>
+						{showDetails}
+					</ProfileLink>
 				</div>
 			}
 			<Grid
@@ -90,6 +102,6 @@ function UserInfo(props){
 	)
 }
 
-UserInfo.propTypes = propTypes
+UserTags.propTypes = propTypes
 
-export default UserInfo
+export default UserTags

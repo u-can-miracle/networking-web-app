@@ -1,5 +1,6 @@
 export * from './photo'
 export * from './contact'
 export * from './location'
+export * from './login'
 export * from './userName'
 export * from './description'
