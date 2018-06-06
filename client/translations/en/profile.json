@@ -1,8 +1,18 @@
 {
+	"title": {
+		"login": "Login",
+		"userName": "User name",
+		"location": "Location",
+		"emailAddress":"Email address",
+		"description": "Description"
+	},
 	"desription": {
-		"namePlaceholder": "Your name",
-		"locationPlaceholder": "Select your location",
+		"noDescription": "There is no description yet",
+		"namePlaceholderEnable": "Your name",
+		"namePlaceholderDisabled": "User name isn't selected",
 		"locationTitle": "Location",
+		"locationPlaceholderEditable": "Select your location",
+		"locationPlaceholderDisabled": "Location isn't selected",
 		"decriptionTitle": "description",
 		"describePlaceholder": "Describe about yourself and your expirience",
 		"loadImagePlaceholder": "Choose your photo",
@@ -12,6 +22,7 @@
 		"title": "Contacts",
 		"addBtnTitle": "Add contact",
 		"contactMethod": "Add contact method - skype, email, etc",
-		"contact": "Your contact: skypeacc, me@mail.com, etc"
+		"contact": "Your contact: skypeacc, me@mail.com, etc",
+		"noContacts": "There are no contacts yet"
 	}
 }

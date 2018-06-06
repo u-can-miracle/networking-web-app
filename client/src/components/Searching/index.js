@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Button } from 'semantic-ui-react'
 
-import UserProfile from '../UserProfile'
+import UserTags from '../UserTags'
 import { searchTags } from '../../actions'
 import { OFFER, LOOKING } from '../../constants'
 import searchTrans from '../../../translations/en/search'
@@ -11,6 +11,7 @@ import { getTagsNamesList } from '../../services/helpers'
 const propTypes = {
 	dispatch: PropTypes.func.isRequired,
 	isRequestEnable: PropTypes.bool.isRequired,
+	isSearchBtnClicked: PropTypes.bool.isRequired,
 	userTags: PropTypes.shape({
 		[OFFER]: PropTypes.arrayOf(PropTypes.shape({
 			tagId: PropTypes.number.isRequired,
@@ -24,54 +25,14 @@ const propTypes = {
 	searchResults: PropTypes.array.isRequired
 }
 
-class Searching extends Component {
-	constructor(props){
-		super(props)
-
-		this.buildResultsListBind = this.buildResultsList.bind(this)
-		this.searchMatchingBind = this.searchMatching.bind(this)
-	}
-
-	componentDidMount(){
-		if(this.props.history.location.hash === '#_=_'){
-			this.props.history.replace('/main')
-		}
-	}
-
-	buildResultsList(){
-		const {
-			isRequestEnable,
-			searchResults,
-			dispatch
-		} = this.props
-
-		return searchResults.map(result => {
-			const userData = {
-				userId: result.userId,
-				email: result.email,
-				login: result.login
-			}
-
-			return (
-				<UserProfile
-					key={result.userId}
-					userData={userData}
-					dispatch={dispatch}
-					isRequestEnable={isRequestEnable}
-					isEditable={false}
-					title={searchTrans.userProfile.title}
-					tags={result.tags}
-				/>
-			)
-		})
-	}
-
-	searchMatching(){
-		const {
-			userTags,
-			dispatch
-		} = this.props
-
+function Searching({
+	dispatch,
+	isRequestEnable,
+	isSearchBtnClicked,
+	userTags,
+	searchResults
+}){
+	function searchMatching(){
 		const tags = {
 			[OFFER]: getTagsNamesList(userTags[OFFER]),
 			[LOOKING]: getTagsNamesList(userTags[LOOKING])
@@ -80,23 +41,51 @@ class Searching extends Component {
 		dispatch(searchTags(tags))
 	}
 
-	render(){
-		return (
-			<div className='search-results'>
-				<Button
-					compact
-					floated='right'
-					onClick={this.searchMatchingBind}
-				>
-					{searchTrans.searchBtnText}
-				</Button>
+	return (
+		<div className='search-results'>
+			<Button
+				className='search-results--search-btn'
+				compact
+				onClick={searchMatching}
+			>
+				{searchTrans.searchBtnText}
+			</Button>
 
-				<div>
-					{this.buildResultsListBind()}
-				</div>
+			<div>
+				{
+					isSearchBtnClicked && !searchResults.length ? (
+						<div
+							className='search-results--empty-result max-with-limit'
+						>
+							{searchTrans.noSearchResults}
+						</div>
+					) : searchResults.map(result => {
+						const userData = {
+							userId: result.userId,
+							email: result.email,
+							login: result.login
+						}
+
+						return (
+							<div
+								key={result.userId}
+								className='search-results--single-result'
+							>
+								<UserTags
+									userData={userData}
+									dispatch={dispatch}
+									isRequestEnable={isRequestEnable}
+									isEditable={false}
+									title={searchTrans.userProfile.title}
+									tags={result.tags}
+								/>
+							</div>
+						)
+					})
+				}
 			</div>
-		)
-	}
+		</div>
+	)
 }
 
 Searching.propTypes = propTypes

@@ -1,13 +1,9 @@
 .editable{
 	position: relative;
 }
-.editable--enable{
-
-}
-
 
 .editable--title{
-	margin-bottom: 3px;
+	margin-right: 8px;
 	font-size: 16px;
 	font-weight: 600;
 }
@@ -30,7 +26,7 @@
 	height: 22px;
 	display: inline-block;
 	padding-bottom: 0px;
-	border-bottom: 1px solid $theme-color-secondary;
+	border-bottom: 1px solid $primary-bg;
 	font-family: sans-serif;
 	font-size: 14px;
 	font-weight: 400;

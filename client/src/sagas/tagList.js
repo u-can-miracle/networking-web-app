@@ -9,7 +9,7 @@ export function* sendTag(action){
 
 	const response = yield call(
 		api.request,
-		'/profile/save-tag',
+		'/profile/tag/save',
 		{ tagName, tagType, tagsNames }
 	)
 
@@ -35,7 +35,7 @@ export function* removeTag(action){
 
 	yield call(
 		api.request,
-		'/profile/remove-tag',
+		'/profile/tag/remove',
 		{ userTagId, tagsNames }
 	)
 

@@ -13,6 +13,13 @@ export function photoRemoveRequest(){
 	}
 }
 
+export function loginUpdate(login){
+	return {
+		type: constants.LOGIN_UPDATE_REQUEST,
+		payload: { login }
+	}
+}
+
 export function userNameUpdate(userName){
 	return {
 		type: constants.USER_NAME_UPDATE_REQUEST,

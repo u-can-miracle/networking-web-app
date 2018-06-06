@@ -29400,10 +29400,11 @@ body.pushable > .pusher {
 /*******************************
          Site Overrides
 *******************************/
-.max-with-limit {
-  max-width: 1200px;
-  margin-right: auto;
-  margin-left: auto; }
+.ui.celled.grid {
+  margin-top: 7px; }
+
+.ui.form .field {
+  margin-bottom: 24px; }
 
 a.ui.label {
   cursor: default; }
@@ -29421,19 +29422,24 @@ a.ui.label {
 
 .ui.basic.buttons .button,
 .ui.basic.button {
-  background: #fff !important; }
+  background: #fefefe !important; }
+
+body {
+  background: #fefefe; }
+
+.max-with-limit {
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto; }
 
 .main-wrapper {
   padding-left: 12px;
   padding-right: 12px; }
 
 .underline-btn {
-  background: #fff;
+  background: #fefefe;
   padding-bottom: 5px;
   border-bottom: 1px solid #ccc; }
-
-.ui.form .field {
-  margin-bottom: 24px; }
 
 .navigation__page {
   margin-top: 40px;
@@ -29488,10 +29494,15 @@ a.ui.label {
 .login__fb-btn {
   float: right; }
 
-.profile {
+.profile--tags {
+  max-width: 920px;
+  margin-left: 0; }
+
+.profile--info {
   display: flex;
   flex-wrap: row;
-  align-items: flex-start; }
+  align-items: flex-start;
+  margin-bottom: 30px; }
 
 .profile--description {
   padding-right: 15px;
@@ -29512,11 +29523,27 @@ a.ui.label {
 .profile--user-info {
   flex-grow: 1; }
 
-.profile--user-name {
+.profile--user-detail {
+  display: flex;
   margin-bottom: 18px; }
 
-.ui.form textarea.profile--user-description {
-  border-color: #ffca28; }
+.profile--user-email-title,
+.profile--user-description--title {
+  margin-right: 8px;
+  font-weight: 600;
+  font-size: 16px; }
+
+.ui.form .profile--user-description {
+  min-height: 75px;
+  margin-top: 5px;
+  border: 1px solid #ffca28; }
+
+.profile--user-description--readonly {
+  min-height: 75px;
+  margin-top: 5px;
+  padding: 11px 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px; }
 
 /***  profile--contacts  ***/
 .contacts-list .contacts-list--add-btn.ui.icon.button {
@@ -29613,7 +29640,7 @@ a.ui.label {
   position: relative;
   z-index: 1000; }
   .notifier .notifier--body {
-    position: absolute;
+    position: fixed;
     left: 50%;
     transform: translate(-50%);
     padding: 8px 12px;
@@ -29622,6 +29649,13 @@ a.ui.label {
 
 .search-results {
   margin-top: 40; }
+
+.search-results--single-result {
+  margin-bottom: 25px; }
+
+.search-results--search-btn.ui.button {
+  display: table;
+  margin: 0 auto 25px; }
 
 .result-row {
   display: flex;
@@ -29645,11 +29679,15 @@ a.ui.label {
   padding: 12px 10px;
   border-left: 1px solid #ccc; }
 
+.user-tags--login {
+  margin-right: 5px;
+  font-weight: 600; }
+
 .editable {
   position: relative; }
 
 .editable--title {
-  margin-bottom: 3px;
+  margin-right: 8px;
   font-size: 16px;
   font-weight: 600; }
 
@@ -29669,7 +29707,7 @@ a.ui.label {
   height: 22px;
   display: inline-block;
   padding-bottom: 0px;
-  border-bottom: 1px solid #ffca28;
+  border-bottom: 1px solid #fefefe;
   font-family: sans-serif;
   font-size: 14px;
   font-weight: 400; }
@@ -29781,5 +29819,5 @@ a.ui.label {
   top: 50%;
   transform: translate(-98%, -112%); }
 
-body {
-  background: #fefefe; }
+.profile-link {
+  cursor: pointer; }

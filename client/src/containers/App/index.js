@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Route, Switch, withRouter } from 'react-router-dom'
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
 
 import Notifier from '../../components/Notifier'
 import Login from '../../components/Login'
 import Confirmation from '../../components/Login/Confirmation'
 import SuccessReg from '../../components/Login/SuccessReg'
-import UserProfile from '../../components/UserProfile'
+import UserTags from '../../components/UserTags'
 import Auth from '../../components/Auth'
 import NotFound from '../../components/NotFound'
 import Header from '../../components/Header'
@@ -15,16 +15,17 @@ import Searching from '../../components/Searching'
 import Profile from '../../components/Profile'
 import loggedToLooking from '../../HOC/redirectLoggedToLooking'
 
-import userProfileTrans from '../../../translations/en/userProfile.json'
+import userProfileTrans from '../../../translations/en/userProfile'
 
 const propTypes = {
 	dispatch: PropTypes.func.isRequired,
 
 	confirming: PropTypes.object.isRequired,
-	profile: PropTypes.object.isRequired,
+	profileCurrentUser: PropTypes.object.isRequired,
+	profileReview: PropTypes.object.isRequired,
 	notifier: PropTypes.object.isRequired,
 	history: PropTypes.object.isRequired,
-	searchResults: PropTypes.array.isRequired
+	search: PropTypes.object.isRequired
 }
 
 function App (props){
@@ -32,26 +33,28 @@ function App (props){
     confirming: { isItConfirmingProcess },
 
     dispatch,
-    profile,
-    profile: { isLogged },
+    profileCurrentUser,
+    profileReview,
+		loginRegistrDetails,
+    loginRegistrDetails: { isLogged },
     notifier: { isRequestEnable, message },
-		searchResults,
+		search: { searchResults, isSearchBtnClicked },
 		history
   } = props
 
 	const MainPageComp = (
-		<UserProfile
+		<UserTags
 			dispatch={dispatch}
 			isRequestEnable={isRequestEnable}
-			isEditable
-			tags={profile.tags}
+			tags={profileCurrentUser.tags}
 			title={userProfileTrans.title}
+			isEditable
 		/>
 	)
 
 	const loginComp = (
 		<Login
-			profile={profile}
+			loginRegistrDetails={loginRegistrDetails}
 			isRequestEnable={isRequestEnable}
 			dispatch={dispatch}
 		/>
@@ -70,8 +73,9 @@ function App (props){
       <Header
         isLogged={isLogged}
         dispatch={dispatch}
-				userName={profile.userName}
-				login={profile.login}
+				userName={profileCurrentUser.userName}
+				currentUserId={profileCurrentUser.userId}
+				login={profileCurrentUser.login}
       />
       <Switch>
         <Route
@@ -103,6 +107,11 @@ function App (props){
           component={SuccessReg}
         />
 				<Route
+					path='/auth/fb/callback'
+					// eslint-disable-next-line react/jsx-no-bind
+					render={() => ( <Redirect to='/main' /> )}
+				/>
+				<Route
 					path='/main'
 					// eslint-disable-next-line react/jsx-no-bind
 					render={() => (
@@ -111,7 +120,8 @@ function App (props){
 							<Searching
 								dispatch={dispatch}
 								isRequestEnable={isRequestEnable}
-								userTags={profile.tags}
+								userTags={profileCurrentUser.tags}
+								isSearchBtnClicked={isSearchBtnClicked}
 								searchResults={searchResults}
 								history={history}
 							/>
@@ -119,15 +129,33 @@ function App (props){
 												)}
 				/>
 				<Route
-					path='/profile'
+					path='/profile/:id'
 					// eslint-disable-next-line react/jsx-no-bind
-					render={() => (
-							<Profile
-								profile={profile}
-								dispatch={dispatch}
-								isRequestEnable={isRequestEnable}
-							/>
-						)
+					render={(props) => {
+						const { match: { params: { id } } } = props
+
+						if(parseInt(id) === profileCurrentUser.userId){
+							return (
+								<Profile
+									profile={profileCurrentUser}
+									currentUserId={profileCurrentUser.userId}
+									dispatch={dispatch}
+									isRequestEnable={isRequestEnable}
+									isEditable
+								/>
+							)
+						} else {
+							return (
+								<Profile
+									profile={profileReview}
+									currentUserId={profileCurrentUser.userId}
+									dispatch={dispatch}
+									isRequestEnable={isRequestEnable}
+									isEditable={false}
+								/>
+							)
+						}
+					}
 					}
 				/>
         <Route component={NotFound} />

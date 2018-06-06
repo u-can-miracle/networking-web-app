@@ -6,6 +6,7 @@ const propTypes = {
 	children: PropTypes.element,
 	title: PropTypes.string,
 	value: PropTypes.string,
+	isEditable: PropTypes.bool.isRequired,
 	placeholder: PropTypes.string,
 	className: PropTypes.string,
 	onBlur: PropTypes.func
@@ -68,26 +69,25 @@ class EditedInput extends Component {
 
 	render(){
 		const { isEditedModeEnable, width, isLoaded, value } = this.state
-		const { children, className, placeholder, title } = this.props
+		const { className, placeholder, title, isEditable } = this.props
 
 		return (
 			<div
 				className={classnames(
 					className,
 					'editable',
-					{ 'editable--enable': isEditedModeEnable },
-					{ 'editable--loaded': isLoaded }
+					{ 'editable--enable': isEditable && isEditedModeEnable },
+					{ 'editable--loaded': isEditable && isLoaded }
 				)}
 			>
 				{
 					title
 						&&
-					<h5
+					<div
 						className='editable--title'
 					>
-						{title}
-						{children}
-					</h5>
+						{title}:
+					</div>
 				}
 				<div className='editable--content'>
 					<span
@@ -98,14 +98,18 @@ class EditedInput extends Component {
 						{value || placeholder}
 					</span>
 
-					<input
-						className='editable--input-block'
-						style={{ width: width + 5 }}
-						placeholder={placeholder}
-						value={value}
-						onBlur={this.submitBind}
-						onChange={this.updateValueBind}
-					/>
+					{
+						isEditable
+							&&
+						<input
+							className='editable--input-block'
+							style={{ width: width + 5 }}
+							placeholder={placeholder}
+							value={value}
+							onBlur={this.submitBind}
+							onChange={this.updateValueBind}
+						/>
+					}
 				</div>
 			</div>
 		)

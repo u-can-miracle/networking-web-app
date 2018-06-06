@@ -11,6 +11,7 @@ import {
 import { watchSearchTags } from './search'
 import {
 	watchPhotoUpdate,
+	watchLoginUpdate,
 	watchUserNameUpdate,
 	watchLocationUpdate,
 	watchDescriptionUpdate,
@@ -18,6 +19,7 @@ import {
 	watchContactRemove,
 	watchContactUpdate
 } from './profile'
+import watchRequestUserProfileById from './profileReview'
 
 export default function* rootSaga(){
   yield all([
@@ -29,11 +31,14 @@ export default function* rootSaga(){
 		watchRemoveTag(),
 		watchSearchTags(),
 		watchPhotoUpdate(),
+		watchLoginUpdate(),
 		watchUserNameUpdate(),
 		watchLocationUpdate(),
 		watchDescriptionUpdate(),
 		watchContactCreate(),
 		watchContactRemove(),
-		watchContactUpdate()
+		watchContactUpdate(),
+
+		watchRequestUserProfileById()
   ])
 }

@@ -9,13 +9,16 @@ const propTypes = {
 	dispatch: PropTypes.func.isRequired,
 	userName: PropTypes.string,
 	login: PropTypes.string,
+	currentUserId: PropTypes.number,
 	isLogged: PropTypes.bool.isRequired
 }
 
-function Header ({ dispatch, isLogged, userName, login }){
+function Header ({ dispatch, isLogged, userName, currentUserId, login }){
 	function logout (){
 		dispatch(sendUserLoguot())
 	}
+
+	const path = currentUserId ? `/profile/${currentUserId}` : ''
 
 	return	(
 		<Segment className='heading'>
@@ -23,13 +26,16 @@ function Header ({ dispatch, isLogged, userName, login }){
 				floated='left'
 				className='heading--title'
 			>
-				<NavLink to='/main'>Networking Service</NavLink>
+			<NavLink to='/'>
+				Networking Service
+			</NavLink>
+
 			</Heading>
 			{
 				isLogged
 				&&
 				<div>
-					<NavLink to='/profile'>
+					<NavLink to={path}>
 						<Label
 							className='heading--profile-btn'
 							as='span'

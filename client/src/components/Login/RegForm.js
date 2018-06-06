@@ -23,7 +23,7 @@ import * as actions from '../../actions'
 
 const propTypes = {
 	dispatch: PropTypes.func.isRequired,
-	profile: PropTypes.object.isRequired
+	loginRegistrDetails: PropTypes.object.isRequired
 }
 
 export default class RegForm extends Component {
@@ -70,7 +70,7 @@ export default class RegForm extends Component {
 			isLoginUsed,
 			loginMessage,
 			emailMessage
-		} = nextProps.profile
+		} = nextProps.loginRegistrDetails
 
 		this.setState((/*prevState, props*/) => {
 			return {
