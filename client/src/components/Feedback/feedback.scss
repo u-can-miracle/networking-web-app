@@ -1,0 +1,47 @@
+.feedback{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 380px;
+	height: 32px;
+  padding: 5px 12px 4px 12px;
+	border: 1px solid $secondary-border-color;
+	border-radius: 3px;
+	overflow: hidden;
+	opacity: 0.5;
+  background: $secondary-bg;
+	@include transition();
+	&:hover{
+		opacity: 1;
+	}
+	&.feedback--openend{
+		height: 200px;
+		opacity: 1;
+	}
+}
+
+.feedback--form{
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 5px;
+}
+
+.feedback--icons-block{
+	position: relative;
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 12px;
+	.window{
+		margin-left: 5px;
+		cursor: pointer;
+	}
+}
+
+
+
+.feedback--title-long{
+	position: absolute;
+	left: 0;
+	top: 0;
+	@include transition();
+}

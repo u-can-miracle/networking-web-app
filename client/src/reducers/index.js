@@ -6,6 +6,7 @@ import profileReview from './profileReview'
 import loginRegistrDetails from './loginRegistrDetails'
 import search from './search'
 import confirming from './confirming'
+import feedback from './feedback'
 
 export default combineReducers({
 	profileCurrentUser,
@@ -13,5 +14,6 @@ export default combineReducers({
 	loginRegistrDetails,
 	search,
 	notifier,
-	confirming
+	confirming,
+	feedback
 })

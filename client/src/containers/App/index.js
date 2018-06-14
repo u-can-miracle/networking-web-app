@@ -11,6 +11,7 @@ import UserTags from '../../components/UserTags'
 import Auth from '../../components/Auth'
 import NotFound from '../../components/NotFound'
 import Header from '../../components/Header'
+import Feedback from '../../components/Feedback'
 import Searching from '../../components/Searching'
 import Profile from '../../components/Profile'
 import loggedToLooking from '../../HOC/redirectLoggedToLooking'
@@ -25,7 +26,8 @@ const propTypes = {
 	profileReview: PropTypes.object.isRequired,
 	notifier: PropTypes.object.isRequired,
 	history: PropTypes.object.isRequired,
-	search: PropTypes.object.isRequired
+	search: PropTypes.object.isRequired,
+	feedback: PropTypes.object.isRequired
 }
 
 function App (props){
@@ -39,6 +41,7 @@ function App (props){
     loginRegistrDetails: { isLogged },
     notifier: { isRequestEnable, message },
 		search: { searchResults, isSearchBtnClicked },
+		feedback: { willClearFeedback },
 		history
   } = props
 
@@ -48,7 +51,7 @@ function App (props){
 			isRequestEnable={isRequestEnable}
 			tags={profileCurrentUser.tags}
 			title={userProfileTrans.title}
-			isEditable
+			isEditable={false}
 		/>
 	)
 
@@ -77,6 +80,12 @@ function App (props){
 				currentUserId={profileCurrentUser.userId}
 				login={profileCurrentUser.login}
       />
+			<Feedback
+				willClearFeedback={willClearFeedback}
+				dispatch={dispatch}
+				isUserLogged={isLogged}
+				isRequestEnable={isRequestEnable}
+			/>
       <Switch>
         <Route
           exact
