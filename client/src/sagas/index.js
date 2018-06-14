@@ -20,6 +20,7 @@ import {
 	watchContactUpdate
 } from './profile'
 import watchRequestUserProfileById from './profileReview'
+import watchFeedback from './feedback'
 
 export default function* rootSaga(){
   yield all([
@@ -38,7 +39,7 @@ export default function* rootSaga(){
 		watchContactCreate(),
 		watchContactRemove(),
 		watchContactUpdate(),
-
-		watchRequestUserProfileById()
+		watchRequestUserProfileById(),
+		watchFeedback(),
   ])
 }

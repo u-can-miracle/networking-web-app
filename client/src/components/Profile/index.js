@@ -229,7 +229,7 @@ class Profile extends Component {
 				</div>
 				<UserTags
 					className='profile--tags'
-					isEditable={false}
+					isEditable
 					isRequestEnable={isRequestEnable}
 					dispatch={dispatch}
 					title={this.tagsTitles}

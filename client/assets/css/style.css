@@ -56,6 +56,9 @@ button, select, textarea {
 a:hover, a:focus, a:active, button:hover, button:focus, button:active, input:hover, input:focus, input:active, textarea:hover, textarea:focus, textarea:active, .slick-slide:hover, .slick-slide:focus, .slick-slide:active {
   outline: none; }
 
+textarea {
+  resize: none; }
+
 /***  Custom variables  ***/
 /***  Bootstrap variables  ***/
 /***  Usage  ***/
@@ -29477,6 +29480,53 @@ body {
   background-image: none;
   box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
   color: rgba(0, 0, 0, 0.8); }
+
+.feedback {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 380px;
+  height: 32px;
+  padding: 5px 12px 4px 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  overflow: hidden;
+  opacity: 0.5;
+  background: #f9f9f9;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+  .feedback:hover {
+    opacity: 1; }
+  .feedback.feedback--openend {
+    height: 200px;
+    opacity: 1; }
+
+.feedback--form {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px; }
+
+.feedback--icons-block {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px; }
+  .feedback--icons-block .window {
+    margin-left: 5px;
+    cursor: pointer; }
+
+.feedback--title-long {
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
 
 .login__container {
   max-width: 560px;

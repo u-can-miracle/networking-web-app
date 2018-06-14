@@ -1,6 +1,7 @@
 export * from './login'
 export * from './logout'
 export * from './notifier'
+export * from './feedback'
 export * from './search'
 export * from './tagList'
 export * from './profileCurrentUser'
