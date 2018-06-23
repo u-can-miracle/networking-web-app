@@ -3,6 +3,6 @@
 *.log*
 node_modules
 client/dist/
-client/assets/css
+client/assets/css/style.css
 client/assets/fonts
 yarn.lock
