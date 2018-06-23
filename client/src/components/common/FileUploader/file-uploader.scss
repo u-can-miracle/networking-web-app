@@ -14,13 +14,12 @@
 		top: 5px;
 		z-index: 15;
 		opacity: 0;
-		// border: 2px solid red;
 		cursor: pointer;
 		background: $overlay-color;
 		color: red;
 		@include transition();
 		&:hover{
-			opacity: 0.65
+			opacity: 1
 		}
 		&:before{
 			@include center();
@@ -44,7 +43,6 @@
 
 .file-uploader--file-uploader-image{
 	display: block;
-	// border: 1px solid red;
 }
 
 
@@ -71,7 +69,6 @@
 }
 .file-uploader--enabled{
 	border: 2px dashed red;
-	// border: 1px dashed $secondary-border-color;
 }
 .file-uploader--loaded-img{
 	position: absolute;
@@ -82,6 +79,10 @@
 	z-index: 5;
 }
 .file-uploader--img-load-notice{
+	height: 19px;
 	text-align: center;
 	font-size: 12px;
+}
+.file-uploader--img-load-notice--visible{
+	opacity: 0;
 }

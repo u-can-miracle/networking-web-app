@@ -8,7 +8,7 @@ import {
 } from '../../../actions'
 import { THIS_TAG_ALREADY_EXIST } from '../../../constants'
 import { LOOKING, OFFER } from '../../../constants'
-import { getTagsNamesList } from '../../../services/helpers'
+import { getTagsNamesList } from '../../../services/utils'
 
 const propTypes = {
 	dispatch: PropTypes.func.isRequired,
@@ -23,7 +23,7 @@ const propTypes = {
 	}).isRequired
 }
 
-class TagForm extends React.Component {
+class TagForm extends React.PureComponent {
 	constructor(props){
 		super(props)
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
@@ -9,10 +9,11 @@ const propTypes = {
 	isEditable: PropTypes.bool.isRequired,
 	placeholder: PropTypes.string,
 	className: PropTypes.string,
-	onBlur: PropTypes.func
+	onBlur: PropTypes.func,
+	isRequestEnable: PropTypes.bool
 }
 
-class EditedInput extends Component {
+class EditedInput extends PureComponent {
 	constructor(props){
 		super(props)
 
@@ -28,6 +29,17 @@ class EditedInput extends Component {
 		this.updateWidthBind = this.updateWidth.bind(this)
 		this.submitBind = this.submit.bind(this)
 		this.updateValueBind = this.updateValue.bind(this)
+	}
+
+	componentWillReceiveProps(nextProps){
+		const { isRequestEnable, value } = nextProps
+
+		// strict comparision - isRequestEnable is optional prop not undefined
+		if(isRequestEnable === false && this.props.value !== value){
+			this.setState(() => ({
+				value
+			}))
+		}
 	}
 
 	componentDidMount(){
@@ -69,7 +81,7 @@ class EditedInput extends Component {
 
 	render(){
 		const { isEditedModeEnable, width, isLoaded, value } = this.state
-		const { className, placeholder, title, isEditable } = this.props
+		const { className, placeholder, title, isEditable, children } = this.props
 
 		return (
 			<div
@@ -111,6 +123,7 @@ class EditedInput extends Component {
 						/>
 					}
 				</div>
+				{children}
 			</div>
 		)
 	}

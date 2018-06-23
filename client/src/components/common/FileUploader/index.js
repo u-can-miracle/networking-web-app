@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import { Icon } from 'semantic-ui-react'
@@ -31,15 +31,14 @@ const propTypes = {
 	allowedFileSize: PropTypes.number
 }
 
-class FileUploader extends Component {
+class FileUploader extends PureComponent {
 	constructor(props){
 		super(props)
 
 		this.photoInputRef = null
 
 		this.state = {
-			isDragEnable: false,
-			// base64Img: props.defaultImg
+			isDragEnable: false
 		}
 
 		this.onDragEnterBind = this.onDragEnter.bind(this)
@@ -192,6 +191,8 @@ class FileUploader extends Component {
 				{
 					defaultImg
 						&&
+					isUploadEnable
+						&&
 					<Icon
 						onClick={this.removePhotoHandlerBind}
 						className='file-uploader-remove-btn'
@@ -241,9 +242,12 @@ class FileUploader extends Component {
 					/>
 				</label>
 				<div
-					className='file-uploader--img-load-notice'
+					className={classnames(
+						'file-uploader--img-load-notice',
+						{ 'file-uploader--img-load-notice--visible': !isUploadEnable	}
+					)}
 				>
-					{isUploadEnable && imgLoadNotice}
+					{imgLoadNotice}
 				</div>
 			</form>
 		)

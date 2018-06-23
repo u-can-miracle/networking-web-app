@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Button, Icon } from 'semantic-ui-react'
 import classnames from 'classnames'
@@ -31,11 +31,12 @@ const propTypes = {
     id: PropTypes.number.isRequired,
     contactType: PropTypes.string.isRequired,
     contactValue: PropTypes.string.isRequired
-  })).isRequired
+  })).isRequired,
+	isRequestEnable: PropTypes.bool.isRequired
 }
 
 
-class ContactsList extends Component {
+class ContactsList extends PureComponent {
 	constructor(props){
 		super(props)
 
@@ -85,18 +86,19 @@ class ContactsList extends Component {
 		}
 	}
 
-	contactUpdate(contactId){
-		const { dispatch } = this.props
+	contactUpdate(contactId, contactIndex){
+		const { dispatch, contactsList } = this.props
+		const oldContactValue = contactsList[contactIndex].contactValue
 
 		return function(newContactValue){
-			dispatch(actions.contactUpdate(contactId, newContactValue))
+			dispatch(actions.contactUpdate(contactId, newContactValue, oldContactValue))
 		}
 	}
 
 	buildContacnts(){
-		const { contactsList, isEditable } = this.props
+		const { contactsList, isEditable, isRequestEnable } = this.props
 
-		return contactsList.map(oneContact => (
+		return contactsList.map((oneContact, index) => (
 				<div
 					className='contacts-list--editable-wrapper'
 					key={oneContact.id}
@@ -107,10 +109,12 @@ class ContactsList extends Component {
 						value={oneContact.contactValue}
 						isEditable={isEditable}
 						// eslint-disable-next-line react/jsx-no-bind
-						onBlur={this.contactUpdate.call(this, oneContact.id)}
+						onBlur={this.contactUpdate.call(this, oneContact.id, index)}
+						isRequestEnable={isRequestEnable}
 					>
 						<Icon
 							className='contacts-list--remove-item-btn'
+							key={oneContact.id}
 							size='small'
 							color='red'
 							name='remove'

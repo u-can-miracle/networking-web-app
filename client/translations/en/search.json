@@ -7,5 +7,8 @@
 	},
 	"searchBtnText": "Search matching",
 	"showDetails": "see user details",
-	"noSearchResults": "There are no one mathing for your tags"
+	"noSearchResults": "There are no one mathing for your tags",
+	"messages": {
+		"searchError": "Error while searching, please contact as to help"
+	}
 }

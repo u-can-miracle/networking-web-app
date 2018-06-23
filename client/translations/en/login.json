@@ -1,8 +1,12 @@
 {
 	"login": {
-		"fbLogin": "Login with facebook"
+		"fbLogin": "Login with facebook",
+		"error": "Error while login, please contact us to help"
 	},
 	"registration": {
-
+		"error": "Error while registration, please contact us to help"
+	},
+	"logout": {
+		"error": "Error while logout, please contact us to help"
 	}
 }

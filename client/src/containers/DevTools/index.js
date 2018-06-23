@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import DevTools from './DevTools'
-import { isBrowser } from '../../services/helpers'
+import { isBrowser } from '../../services/utils'
 
 export default function showDevTools(store){
   const isServer = !isBrowser()

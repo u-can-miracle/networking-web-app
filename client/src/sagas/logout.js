@@ -1,28 +1,41 @@
 import { put, takeEvery, call } from 'redux-saga/effects'
 
 import * as constants from '../constants'
-import { request } from '../services/api'
+import { callApi, errorReporter } from '../services/api'
 import history from '../containers/Routes/history'
+import { getNow } from '../services/utils'
+
+import loginTranslation from '../../translations/en/login'
+
+const { logout: { error } } = loginTranslation
 
 export function* sendUserLogout(){
 	try {
 		const result = yield call(
-			request.bind(this, '/logout')
+			callApi.bind(this, '/logout')
 		)
-		const { isLoggedOut } = result
+		const { isLoggedOut } = result.data
 
 		if(isLoggedOut){
 			yield put({
 				type: constants.USER_LOGGED_OUT
 			})
-			yield put({ // reset search result
+			yield put({ // TODO: reset search result if it result exists
 				type: constants.SEARCH_TAGS_RESPONSE,
 				payload: []
 			})
 			history.push('/login')
 		}
 	} catch (err) {
-		console.log('saga sendUserLogout err', err)
+		const { message, stack } = err
+		errorReporter(getNow(), constants.ERROR_TYPE_ID_FRONT, message, stack)
+
+		yield put({
+			type: constants.DELAYED_NOTIFIER,
+			payload: {
+				message: error
+			}
+		})
 	}
 }
 export default function* watchSendUserLogout(){

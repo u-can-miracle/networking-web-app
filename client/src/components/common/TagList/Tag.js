@@ -5,7 +5,7 @@ import classnames from 'classnames'
 
 import { LOOKING, OFFER } from '../../../constants'
 import { removeTagRequest } from '../../../actions'
-import { getTagsNamesList } from '../../../services/helpers'
+import { getTagsNamesList } from '../../../services/utils'
 
 const propTypes = {
 	dispatch: PropTypes.func.isRequired,

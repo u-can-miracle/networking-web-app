@@ -28,42 +28,33 @@ export default function profileCurrentUserReducer(state = initialState, action) 
 			}
 
 		case constants.USER_LOGGED_OUT:
-			return {...state, isLogged: false
-			}
+			return { ...state, isLogged: false }
 
 		case constants.PHOTO_UPDATE_RESPONSE:
-			return {...state, photoBase64: action.payload.photoBase64
-			}
+			return { ...state, photoBase64: action.payload.photoBase64 }
 
 		case constants.LOGIN_UPDATE_RESPONSE:
-			return {...state, login: action.payload.login
-			}
+			return { ...state, login: action.payload.login }
 
 		case constants.USER_NAME_UPDATE_RESPONSE:
-			return {...state, userName: action.payload.userName
-			}
+			return { ...state, userName: action.payload.userName }
 
 		case constants.LOCATION_UPDATE_RESPONSE:
-			return {...state, location: action.payload.location
-			}
+			return { ...state, location: action.payload.location }
 
 		case constants.DESCRIPTION_UPDATE_RESPONSE:
-			return {...state, description: action.payload.description
-			}
+			return { ...state, description: action.payload.description }
 
 		case constants.CONTACT_CREATE_RESPONSE:
-			const contacts = [...state.contacts, {...action.payload
-			}]
-			return {...state, contacts
-			}
+			const contacts = [ ...state.contacts, { ...action.payload	}]
+			return { ...state, contacts }
 
 		case constants.CONTACT_REMOVE_RESPONSE:
 			const filteredContacts = state.contacts.filter(
 				contact => contact.id !== action.payload.id
 			)
 
-			return {...state, contacts: filteredContacts
-			}
+			return { ...state, contacts: filteredContacts	}
 
 		case constants.CONTACT_UPDATE_RESPONSE:
 			const updatedContacts = state.contacts.map(contact => {
@@ -78,8 +69,7 @@ export default function profileCurrentUserReducer(state = initialState, action) 
 				}
 			})
 
-			return {...state, contacts: updatedContacts
-			}
+			return { ...state, contacts: updatedContacts }
 
 		case constants.TAG_ADD_RESPONSE:
 			const tagToAdd = {
@@ -89,24 +79,22 @@ export default function profileCurrentUserReducer(state = initialState, action) 
 				tagType: action.payload.tagType
 			}
 			const updatedTagsAfterAdd = {
-				...state.tags, [action.payload.tagType]: state.tags[action.payload.tagType]
-					.concat([tagToAdd])
+				...state.tags,
+				[action.payload.tagType]: state.tags[action.payload.tagType].concat([ tagToAdd ])
 			}
 
-			return {...state, tags: updatedTagsAfterAdd
-			}
+			return { ...state, tags: updatedTagsAfterAdd }
 
 		case constants.TAG_REMOVE_RESPONSE:
 			const {
 				userTagId, tagType
 			} = action.payload
 			const updatedTagsAfterRemove = {
-				...state.tags, [tagType]: state.tags[tagType].filter(tag => tag.userTagId !==
-					userTagId)
+				...state.tags,
+				[tagType]: state.tags[tagType].filter(tag => tag.userTagId !== userTagId)
 			}
 
-			return {...state, tags: updatedTagsAfterRemove
-			}
+			return { ...state, tags: updatedTagsAfterRemove }
 
 		default:
 			return state

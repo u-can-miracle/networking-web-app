@@ -1,4 +1,8 @@
 {
 	"feedbackTitle": "Have to say? - Feel free to send your feedback",
-	"sendFeedbackBtnText": "Send feedback"
+	"sendFeedbackBtnText": "Send feedback",
+	"messages": {
+		"sent": "Feedback was sent",
+		"error": "Error while sending feedback, please contact us to help"
+	}
 }

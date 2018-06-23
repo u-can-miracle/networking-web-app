@@ -14,7 +14,7 @@ const propTypes = {
 	closeStyles: PropTypes.object.isRequired
 }
 
-export default class SlideToggle extends React.Component {
+export default class SlideToggle extends React.PureComponent {
 	constructor(props) {
     super(props)
 
