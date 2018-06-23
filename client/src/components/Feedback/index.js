@@ -14,11 +14,10 @@ const {
 const propTypes = {
 	dispatch: PropTypes.func.isRequired,
 	willClearFeedback: PropTypes.bool.isRequired,
-	isRequestEnable: PropTypes.bool.isRequired,
-	isUserLogged: PropTypes.bool.isRequired
+	isRequestEnable: PropTypes.bool.isRequired
 }
 
-class Feedback extends React.Component {
+class Feedback extends React.PureComponent {
 	constructor(props){
 		super(props)
 

@@ -1,17 +1,18 @@
-import "babel-polyfill"; // eslint-disable-line
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
+import "babel-polyfill" // eslint-disable-line
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
 
-import rootSaga from './src/sagas';
-import sagaMiddleware from './src/middlewares/sagaMiddleware';
-import reducers from './src/reducers';
-import ProviderWrapper from './src/containers/Provider';
-import getSingletoneStore from './src/store/getSingletoneStore';
+import './src/services/errorListener'
+import rootSaga from './src/sagas'
+import sagaMiddleware from './src/middlewares/sagaMiddleware'
+import reducers from './src/reducers'
+import ProviderWrapper from './src/containers/Provider'
+import getSingletoneStore from './src/store/getSingletoneStore'
 
-sagaMiddleware.run(rootSaga);
+sagaMiddleware.run(rootSaga)
 
-const store = getSingletoneStore();
+const store = getSingletoneStore()
 
 
 const render = (ProviderComponent) =>
@@ -20,26 +21,26 @@ const render = (ProviderComponent) =>
       <ProviderComponent store={store} />
     </AppContainer>,
     document.getElementById('root')
-  );
+  )
 
 
-render(ProviderWrapper);
+render(ProviderWrapper)
 
 
 
 if (module.hot) {
   module.hot.accept('./src/reducers', () => {
-    store.replaceReducer(reducers);
-  });
+    store.replaceReducer(reducers)
+  })
 
   module.hot.accept('./src/containers/Provider', () => {
-		const NextProvider = require('./src/containers/Provider').default;
+		const NextProvider = require('./src/containers/Provider').default
 
-		render(NextProvider);
-  });
+		render(NextProvider)
+  })
 }
 
 // if (process.env.NODE_ENV !== 'production') {
-//   const showDevTools = require('./src/containers/DevTools').default;
-//   showDevTools(store);
+//   const showDevTools = require('./src/containers/DevTools').default
+//   showDevTools(store)
 // }

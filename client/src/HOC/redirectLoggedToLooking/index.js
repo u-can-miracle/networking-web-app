@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Redirect } from 'react-router'
 
-import { isBrowser } from '../../services/helpers'
+import { isBrowser } from '../../services/utils'
 
 export default function loggedToLooking(LoggedComp, NotLoggedComp){
 	const LoggedToLooking = isLogged => {

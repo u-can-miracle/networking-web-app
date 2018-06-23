@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Button, Form } from 'semantic-ui-react'
 
@@ -26,7 +26,7 @@ const propTypes = {
 	loginRegistrDetails: PropTypes.object.isRequired
 }
 
-export default class RegForm extends Component {
+export default class RegForm extends PureComponent {
 	constructor(props){
 		super(props)
 

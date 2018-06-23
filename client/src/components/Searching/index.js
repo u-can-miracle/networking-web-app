@@ -6,7 +6,7 @@ import UserTags from '../UserTags'
 import { searchTags } from '../../actions'
 import { OFFER, LOOKING } from '../../constants'
 import searchTrans from '../../../translations/en/search'
-import { getTagsNamesList } from '../../services/helpers'
+import { getTagsNamesList } from '../../services/utils'
 
 const propTypes = {
 	dispatch: PropTypes.func.isRequired,

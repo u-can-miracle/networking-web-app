@@ -80,12 +80,15 @@ function App (props){
 				currentUserId={profileCurrentUser.userId}
 				login={profileCurrentUser.login}
       />
-			<Feedback
-				willClearFeedback={willClearFeedback}
-				dispatch={dispatch}
-				isUserLogged={isLogged}
-				isRequestEnable={isRequestEnable}
-			/>
+
+			{ isLogged
+					&&
+				<Feedback
+					willClearFeedback={willClearFeedback}
+					dispatch={dispatch}
+					isRequestEnable={isRequestEnable}
+				/>}
+
       <Switch>
         <Route
           exact
@@ -187,7 +190,7 @@ function mapDispatchToProps(dispatch){
 export default withRouter(
 	connect(
 		// https://github.com/ReactTraining/react-router/issues/3536
-		mapStateToProps, mapDispatchToProps, null, { pure:false }
+		mapStateToProps, mapDispatchToProps, null, { pure: false }
 	)(App)
 )
 

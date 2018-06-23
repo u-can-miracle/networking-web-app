@@ -1,0 +1,6 @@
+{
+	"messages": {
+		"saveTagError": "Error while saving tag, please contact as to help",
+		"removeTagError": "Error while removing tag, please contact as to help"
+	}
+}

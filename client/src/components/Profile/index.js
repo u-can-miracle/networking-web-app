@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Form, TextArea } from 'semantic-ui-react'
 
@@ -51,7 +51,7 @@ const propTypes = {
 	isRequestEnable: PropTypes.bool.isRequired
 }
 
-class Profile extends Component {
+class Profile extends PureComponent {
 	constructor(props){
 		super(props)
 
@@ -73,8 +73,18 @@ class Profile extends Component {
 		this.descriptionUpdateBind = this.descriptionUpdate.bind(this)
 	}
 
+	componentWillUpdate(nextProps){
+		const { isRequestEnable, profile: { description } } = nextProps
+		if(isRequestEnable === false && description !== this.props.profile.description){
+			debugger
+			this.setState(() => ({
+				description
+			}))
+		}
+	}
+
 	photoSave(photoBase64){
-		this.props.dispatch(actions.photoUpdateRequest(photoBase64))
+		this.props.dispatch(actions.photoUpdateRequest(photoBase64, this.props.profile.photoBase64))
 	}
 
 	photoRemove(){
@@ -86,15 +96,15 @@ class Profile extends Component {
 	}
 
 	loginUpdate(login){
-		this.props.dispatch(actions.loginUpdate(login))
+		this.props.dispatch(actions.loginUpdate(login, this.props.profile.login))
 	}
 
 	userNameUpdate(userName){
-		this.props.dispatch(actions.userNameUpdate(userName))
+		this.props.dispatch(actions.userNameUpdate(userName, this.props.profile.userName))
 	}
 
 	locationUpdate(location){
-		this.props.dispatch(actions.locationUpdate(location))
+		this.props.dispatch(actions.locationUpdate(location, this.props.profile.location))
 	}
 
 	descriptionChangeValue(ev){
@@ -110,7 +120,9 @@ class Profile extends Component {
 			return
 		}
 		const { description } = this.state
-		this.props.dispatch(actions.descriptionUpdate(description))
+		const prevDescription = this.props.profile.description
+
+		this.props.dispatch(actions.descriptionUpdate(description, prevDescription))
 	}
 
 	render(){
@@ -158,6 +170,7 @@ class Profile extends Component {
 									isEditable={isEditable}
 									onBlur={this.loginUpdateBind}
 									placeholder={namePlaceholderEnable}
+									isRequestEnable={isRequestEnable}
 								/>
 
 								<EditedInput
@@ -167,6 +180,7 @@ class Profile extends Component {
 									isEditable={isEditable}
 									onBlur={this.userNameUpdateBind}
 									placeholder={namePlaceholderEnable}
+									isRequestEnable={isRequestEnable}
 								/>
 
 								<EditedInput
@@ -176,6 +190,7 @@ class Profile extends Component {
 									isEditable={isEditable}
 									placeholder={locationPlaceholderEditable}
 									onBlur={this.locationUpdateBind}
+									isRequestEnable={isRequestEnable}
 								/>
 
 								<div className='profile--user-email'>
@@ -222,6 +237,7 @@ class Profile extends Component {
 					<div className='profile--contacts'>
 						<ContactsList
 							contactsList={contacts}
+							isRequestEnable={isRequestEnable}
 							isEditable={isEditable}
 							dispatch={dispatch}
 						/>

@@ -1,9 +1,9 @@
 import * as constants from '../constants'
 
-export function photoUpdateRequest(photoBase64){
+export function photoUpdateRequest(photoBase64, prevPhotoBase64){
 	return {
 		type: constants.PHOTO_UPDATE_REQUEST,
-		payload: { photoBase64 }
+		payload: { photoBase64, prevPhotoBase64 }
 	}
 }
 
@@ -13,31 +13,31 @@ export function photoRemoveRequest(){
 	}
 }
 
-export function loginUpdate(login){
+export function loginUpdate(login, prevLogin){
 	return {
 		type: constants.LOGIN_UPDATE_REQUEST,
-		payload: { login }
+		payload: { login, prevLogin }
 	}
 }
 
-export function userNameUpdate(userName){
+export function userNameUpdate(userName, prevUserName){
 	return {
 		type: constants.USER_NAME_UPDATE_REQUEST,
-		payload: { userName }
+		payload: { userName, prevUserName }
 	}
 }
 
-export function locationUpdate(location){
+export function locationUpdate(location, prevLocation){
 	return {
 		type: constants.LOCATION_UPDATE_REQUEST,
-		payload: { location }
+		payload: { location, prevLocation }
 	}
 }
 
-export function descriptionUpdate(description){
+export function descriptionUpdate(description, prevDescription){
 	return {
 		type: constants.DESCRIPTION_UPDATE_REQUEST,
-		payload: { description }
+		payload: { description, prevDescription }
 	}
 }
 
@@ -55,9 +55,9 @@ export function contactRemove(id){
 	}
 }
 
-export function contactUpdate(contactId, newContactValue){
+export function contactUpdate(contactId, newContactValue, prevContactValue){
 	return {
 		type: constants.CONTACT_UPDATE_REQUEST,
-		payload: { contactId, newContactValue } // safety deleting
+		payload: { contactId, newContactValue, prevContactValue }
 	}
 }

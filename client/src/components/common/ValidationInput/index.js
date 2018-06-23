@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 import { Input, Label } from 'semantic-ui-react'
 
 import SlideToggle from '../SlideToggle'
@@ -22,7 +23,7 @@ const closeStyles = {  // destinational styles
 	left: 2
 }
 
-export default class ValidationInput extends Component {
+export default class ValidationInput extends PureComponent {
 	constructor(props){
 		super(props)
 
@@ -42,11 +43,12 @@ export default class ValidationInput extends Component {
 			isInvalid,
 			onChangeWrapper,
 			onFocus,
-			validationMsg
+			validationMsg,
+			className
 		} = this.props
 
 		return (
-			<div>
+			<div className={classnames('validation-input', className)}>
 				<Input
 					type={type}
 					placeholder={placeholder}

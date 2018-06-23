@@ -26,7 +26,7 @@ const propTypes = {
 	loginRegistrDetails: PropTypes.object.isRequired
 }
 
-export default class LoginForm extends React.Component {
+export default class LoginForm extends React.PureComponent {
   constructor(props) {
     super(props)
 
@@ -48,7 +48,7 @@ export default class LoginForm extends React.Component {
   }
 
 	shouldComponentUpdate(/*nextProps, nextState*/){
-		// TODO log props is isRequestEnable exist?
+		// TODO: log props is isRequestEnable exist?
 		return !this.props.isRequestEnable
 	}
 

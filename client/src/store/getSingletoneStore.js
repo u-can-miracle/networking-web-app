@@ -1,5 +1,5 @@
 import configureStore from './configureStore'
-import { isBrowser } from '../services/helpers'
+import { isBrowser } from '../services/utils'
 
 let store = null
 
