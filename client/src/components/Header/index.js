@@ -4,6 +4,9 @@ import { NavLink } from 'react-router-dom'
 import { Segment, Header as Heading, Button, Label } from 'semantic-ui-react'
 
 import { sendUserLoguot } from '../../actions'
+import headerTranslation from '../../../translations/en/header'
+
+const { editProfile } = headerTranslation
 
 const propTypes = {
 	dispatch: PropTypes.func.isRequired,
@@ -35,13 +38,14 @@ function Header ({ dispatch, isLogged, userName, currentUserId, login }){
 				isLogged
 				&&
 				<div>
+					<span className='heading--user-name'>Hi, {userName || login}</span>
 					<NavLink to={path}>
 						<Label
 							className='heading--profile-btn'
 							as='span'
 							size='large'
 						>
-							Hi, {userName || login}
+							{editProfile}
 						</Label>
 					</NavLink>
 					<Button

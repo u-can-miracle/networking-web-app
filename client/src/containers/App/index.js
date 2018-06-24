@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
 
+import HomePage from '../../components/HomePage'
 import Notifier from '../../components/Notifier'
 import Login from '../../components/Login'
 import Confirmation from '../../components/Login/Confirmation'
 import SuccessReg from '../../components/Login/SuccessReg'
 import UserTags from '../../components/UserTags'
-import Auth from '../../components/Auth'
 import NotFound from '../../components/NotFound'
 import Header from '../../components/Header'
 import Feedback from '../../components/Feedback'
@@ -63,9 +63,9 @@ function App (props){
 		/>
 	)
 
-	const authComp = <Auth />
+	const HomePageComp = <HomePage />
 	const LoginToLooking = loggedToLooking(MainPageComp, loginComp)
-	const AuthToLooking = loggedToLooking(MainPageComp, authComp)
+	const AuthToLooking = loggedToLooking(MainPageComp, HomePageComp)
 
   return (
     <div className='main-wrapper'>
