@@ -33,6 +33,10 @@ function Searching({
 	searchResults
 }){
 	function searchMatching(){
+		if(isRequestEnable){
+			return
+		}
+
 		const tags = {
 			[OFFER]: getTagsNamesList(userTags[OFFER]),
 			[LOOKING]: getTagsNamesList(userTags[LOOKING])

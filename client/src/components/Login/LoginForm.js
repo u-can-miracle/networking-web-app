@@ -23,6 +23,7 @@ import * as actions from '../../actions'
 
 const propTypes = {
 	dispatch: PropTypes.func.isRequired,
+	isRequestEnable: PropTypes.bool.isRequired,
 	loginRegistrDetails: PropTypes.object.isRequired
 }
 
@@ -129,6 +130,10 @@ export default class LoginForm extends React.PureComponent {
 	}
 
 	clearAndValidate(){
+		if(this.props.isRequestEnable){
+			return
+		}
+
 		this.clearEmailField()
 		this.clearPassField()
 

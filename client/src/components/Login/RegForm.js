@@ -23,6 +23,7 @@ import * as actions from '../../actions'
 
 const propTypes = {
 	dispatch: PropTypes.func.isRequired,
+	isRequestEnable: PropTypes.bool.isRequired,
 	loginRegistrDetails: PropTypes.object.isRequired
 }
 
@@ -210,6 +211,10 @@ export default class RegForm extends PureComponent {
 	}
 
 	clearAndValidate(ev){
+		if(this.props.isRequestEnable){
+			return
+		}
+
 		this.clearAllValidatedFields()
 		this.validateAndReg(ev)
 	}
