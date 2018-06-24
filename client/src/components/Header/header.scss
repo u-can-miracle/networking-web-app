@@ -9,6 +9,10 @@
 	margin-bottom: 0;
 }
 
+.heading--user-name{
+	margin-right: 10px;
+}
+
 .heading--profile-btn{
 	@include hoverAsBtn();
 }

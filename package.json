@@ -62,6 +62,7 @@
 		"gulp": "^3.9.1",
 		"gulp-sass": "^3.1.0",
 		"gulp-watch": "^4.3.11",
+		"html-loader": "^0.5.5",
 		"react": "^15.6.2",
 		"react-dom": "^15.6.2",
 		"react-motion": "^0.5.2",
