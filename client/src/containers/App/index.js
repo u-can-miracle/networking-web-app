@@ -40,7 +40,7 @@ function App (props){
 		loginRegistrDetails,
     loginRegistrDetails: { isLogged },
     notifier: { isRequestEnable, message },
-		search: { searchResults, isSearchBtnClicked },
+		search: { searchResults, isSearchBtnClicked, isSearchOfferToLooking },
 		feedback: { willClearFeedback },
 		history
   } = props
@@ -96,15 +96,15 @@ function App (props){
           // eslint-disable-next-line react/jsx-no-bind
           render={() => (
 						// TODO: replace with landing explanation page
-													AuthToLooking(isLogged)
-                        )}
+						AuthToLooking(isLogged)
+					)}
         />
         <Route
           path='/login'
           // eslint-disable-next-line react/jsx-no-bind
           render={() => (
-													LoginToLooking(isLogged)
-                        )}
+						LoginToLooking(isLogged)
+					)}
         />
         {
           isItConfirmingProcess
@@ -132,6 +132,7 @@ function App (props){
 							<Searching
 								dispatch={dispatch}
 								isRequestEnable={isRequestEnable}
+								isSearchOfferToLooking={isSearchOfferToLooking}
 								userTags={profileCurrentUser.tags}
 								isSearchBtnClicked={isSearchBtnClicked}
 								searchResults={searchResults}

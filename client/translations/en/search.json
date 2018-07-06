@@ -6,6 +6,9 @@
 		}
 	},
 	"searchBtnText": "Search matching",
+	"toggleSearchBtnTitle": "Toggle search criteria",
+	"searchBtnTooltip": "You can toggle search and we will find users which offers that you offer and which looking what you looking for. So you can contact them and work together",
+	"toggleSearchBtnText": "Toggle search",
 	"showDetails": "see user details",
 	"noSearchResults": "There are no one mathing for your tags",
 	"messages": {

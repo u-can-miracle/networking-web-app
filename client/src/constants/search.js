@@ -1,9 +1,13 @@
 export const OFFER = 'offer'
 export const LOOKING = 'looking'
 
+export const SET_SEARCH_OFFER_TO_LOOKING = 'SET_SEARCH_OFFER_TO_LOOKING'
+export const SET_SEARCH_OFFER_TO_OFFER = 'SET_SEARCH_OFFER_TO_OFFER'
 
 export const SEARCH_TAGS_REQUEST = 'SEARCH_TAGS_REQUEST'
 export const SEARCH_TAGS_RESPONSE = 'SEARCH_TAGS_RESPONSE'
+
+export const SEARCH_TAGS_CLEAR = 'SEARCH_TAGS_CLEAR'
 
 export const TAG_TYPES = {
 	[OFFER]: OFFER,

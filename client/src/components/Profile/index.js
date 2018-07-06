@@ -75,8 +75,8 @@ class Profile extends PureComponent {
 
 	componentWillUpdate(nextProps){
 		const { isRequestEnable, profile: { description } } = nextProps
+
 		if(isRequestEnable === false && description !== this.props.profile.description){
-			debugger
 			this.setState(() => ({
 				description
 			}))

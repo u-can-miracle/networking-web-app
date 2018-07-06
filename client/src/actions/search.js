@@ -1,12 +1,24 @@
 import * as constants from '../constants'
 
 /**
- * @param {matchedUsersTags} Array [{ userId, login, email, tags: {offer: [''], looking: ['']} }]
+ * @param {tags} Array [{ userId, login, email, tags: {offer: [''], looking: ['']} }]
  * @returns {action} Object
  */
-export function searchTags(matchedUsersTags){
+export function searchTags(tags){
 	return {
 		type: constants.SEARCH_TAGS_REQUEST,
-		payload: matchedUsersTags
+		payload: tags
+	}
+}
+
+export function setSearchOfferToLooking(){
+	return {
+		type: constants.SET_SEARCH_OFFER_TO_LOOKING
+	}
+}
+
+export function setSearchOfferToOffer(){
+	return {
+		type: constants.SET_SEARCH_OFFER_TO_OFFER
 	}
 }

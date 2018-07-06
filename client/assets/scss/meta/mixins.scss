@@ -46,12 +46,12 @@
 */
 
 
-@mixin transition($property: all, $duration: 0.5s, $function: ease) {
-    -webkit-transition: $property $duration $function;
-    -moz-transition: $property $duration $function;
-    -ms-transition: $property $duration $function;
-    -o-transition: $property $duration $function;
-    transition: $property $duration $function;
+@mixin transition($property: all, $duration: 0.5s, $function: ease, $delay: 0s) {
+    -webkit-transition: $property $duration $function $delay;
+    -moz-transition: $property $duration $function $delay;
+    -ms-transition: $property $duration $function $delay;
+    -o-transition: $property $duration $function $delay;
+    transition: $property $duration $function $delay;
 }
 /***  Usage  ***/
 /*

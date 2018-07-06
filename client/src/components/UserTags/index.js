@@ -11,6 +11,7 @@ import searchTranslation from '../../../translations/en/search'
 const { showDetails } = searchTranslation
 
 const propTypes = {
+	isSearchOfferToLooking: PropTypes.bool,
 	userData: PropTypes.shape({
 		userId: PropTypes.number.isRequired,
 		login: PropTypes.string.isRequired,
@@ -37,6 +38,7 @@ const propTypes = {
 
 function UserTags(props){
 	const {
+		isSearchOfferToLooking,
 		userData,
 		dispatch,
 		isRequestEnable,
@@ -48,7 +50,13 @@ function UserTags(props){
 	} = props
 
 	return (
-		<div className={classnames('max-with-limit', className)}>
+		<div
+			className={classnames(
+				'max-with-limit',
+				className,
+				{ 'user-tags--looking-to-looking': !isSearchOfferToLooking }
+			)}
+		>
 			{
 				userData
 				&&
@@ -71,7 +79,11 @@ function UserTags(props){
 					className='row--relative'
 				>
 					<Grid.Column
-						className='column--no-margin-bottom column--padding-bottom'
+						className={classnames(
+							'column--no-margin-bottom',
+							'column--padding-bottom',
+							'user-tags--offers'
+						)}
 					>
 						<TagList
 							dispatch={dispatch}
@@ -84,7 +96,11 @@ function UserTags(props){
 						/>
 					</Grid.Column>
 					<Grid.Column
-						className='column--no-margin-bottom column--padding-bottom'
+						className={classnames(
+							'column--no-margin-bottom',
+							'column--padding-bottom',
+							'user-tags--looking'
+						)}
 					>
 						<TagList
 							dispatch={dispatch}
