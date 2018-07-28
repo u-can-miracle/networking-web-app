@@ -6,3 +6,8 @@ client/dist/
 client/assets/css/style.css
 client/assets/fonts
 yarn.lock
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
