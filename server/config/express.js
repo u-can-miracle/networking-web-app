@@ -9,17 +9,17 @@ import config from './'
 import filterUrls from '../helpers/filterUrls'
 
 const compiler = webpack(webpackConfig)
-const { client, api } = config
+const { client, api: { protocol, url, port } } = config
 
 const proxy = proxyMiddlware(
 	filterUrls,
 	{
-		target: `${api.protocol}://${api.url}:${api.port}`,
+		target: `${protocol}://${url}:${port}`,
 		// changeOrigin: true, // needed for virtual hosted site
 		router: {
 			// when request.headers.host == 'dev.localhost:3000',
 			// override target 'http://www.example.org' to 'http://localhost:8000'
-			[`${client.url}:${client.port}`] : `${api.protocol}://${api.url}:${api.port}`
+			[`${client.protocol}://${client.url}:${client.port}`] : `${protocol}://${url}:${port}`
 		}
 	}
 )
