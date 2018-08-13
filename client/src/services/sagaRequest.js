@@ -14,7 +14,6 @@ export default function* sagaRequest(actionTypeResponse, payload, url, msg, fail
 			{ ...payload }
 		)
 
-		debugger
 		if(response.data.isSuccessful){
 			yield put({
 				type: constants[actionTypeResponse],

@@ -29,10 +29,9 @@ function Header ({ dispatch, isLogged, userName, currentUserId, login }){
 				floated='left'
 				className='heading--title'
 			>
-			<NavLink to='/'>
-				Networking Service
-			</NavLink>
-
+				<NavLink to='/'>
+					Networking Service
+				</NavLink>
 			</Heading>
 			{
 				isLogged

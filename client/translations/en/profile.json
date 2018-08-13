@@ -24,5 +24,6 @@
 		"contactMethod": "Add contact method - skype, email, etc",
 		"contact": "Your contact: skypeacc, me@mail.com, etc",
 		"noContacts": "There are no contacts yet"
-	}
+	},
+	"search": "Search matching"
 }

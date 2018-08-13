@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { NavLink } from 'react-router-dom'
 import { Form, TextArea } from 'semantic-ui-react'
 
 import UserTags from '../UserTags'
@@ -23,7 +24,8 @@ const {
 		describePlaceholder,
 		loadImagePlaceholder,
 		noDescription
-	}
+	},
+	search
 } = profileTranslation
 
 const propTypes = {
@@ -215,20 +217,20 @@ class Profile extends PureComponent {
 								{
 									isEditable
 										?
-									<TextArea
-										className='profile--user-description'
-										autoHeight
-										placeholder={describePlaceholder}
-										rows={3}
-										value={description}
-										onClick={this.preventEditableBind}
-										onChange={this.descriptionChangeValueBind}
-										onBlur={this.descriptionUpdateBind}
-									/>
+											<TextArea
+												className='profile--user-description'
+												autoHeight
+												placeholder={describePlaceholder}
+												rows={3}
+												value={description}
+												onClick={this.preventEditableBind}
+												onChange={this.descriptionChangeValueBind}
+												onBlur={this.descriptionUpdateBind}
+											/>
 										:
-									<div className='profile--user-description--readonly'>
-										{description}
-									</div>
+										<div className='profile--user-description--readonly'>
+											{description}
+										</div>
 								}
 							</Form>
 						</div>
@@ -251,6 +253,9 @@ class Profile extends PureComponent {
 					title={this.tagsTitles}
 					tags={tags}
 				/>
+				<NavLink to='/main'>
+					{search}
+				</NavLink>
 			</div>
 		)
 	}
