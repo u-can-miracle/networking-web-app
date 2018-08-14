@@ -8,7 +8,7 @@
 		"start": "npm run start:dev",
 		"start:dev": "npm run gulp:build & npm run start:server & npm run gulp:sass:watch",
 		"start:server": "babel-node ./server/dev.server",
-		"start:prod": "./node_modules/.bin/pm2 -f start ./server/dev.server.js --interpreter ./node_modules/.bin/babel-node",
+		"start:prod": "npm run gulp:build & ./node_modules/.bin/pm2 -f start ./server/dev.server.js --interpreter ./node_modules/.bin/babel-node",
 		"build": "npm run gulp:build",
 		"server": "./node_modules/.bin/pm2 -f start ./server/dev.server.js --interpreter ./node_modules/.bin/babel-node",
 		"gulp:sass:watch": "babel-node ./node_modules/gulp/bin/gulp.js",
