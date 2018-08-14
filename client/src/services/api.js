@@ -1,5 +1,4 @@
 import getSingletoneStore from '../store/getSingletoneStore'
-import { delay } from './utils'
 import {
 	LOADING_MESSAGE,
 	ERROR_TYPE_ID_BACK
@@ -10,8 +9,6 @@ const store = getSingletoneStore()
 
 export async function request(url, payload, method = 'POST'){
 	store.dispatch(enableNotifier(LOADING_MESSAGE))
-
-	await delay(1200)
 
 	const fetchResponse = await fetch(url, {
 		method,
