@@ -1,6 +1,6 @@
 {
 	"login": {
-		"fbLogin": "Login with facebook",
+		"fbLogin": "Login with Facebook",
 		"error": "Error while login, please contact us to help"
 	},
 	"registration": {

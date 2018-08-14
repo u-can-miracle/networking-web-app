@@ -61,5 +61,12 @@
 	border-radius: 4px;
 }
 
+.profile--search{
+	&.button.ui{
+		display: table;
+		margin: 22px auto 40px;
+	}
+}
+
 
 /***  profile--contacts  ***/

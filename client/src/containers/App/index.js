@@ -139,7 +139,7 @@ function App (props){
 								history={history}
 							/>
 						</div>
-												)}
+					)}
 				/>
 				<Route
 					path='/profile/:id'

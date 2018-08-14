@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
+import { Button } from 'semantic-ui-react'
 import { Form, TextArea } from 'semantic-ui-react'
 
 import UserTags from '../UserTags'
@@ -247,15 +248,20 @@ class Profile extends PureComponent {
 				</div>
 				<UserTags
 					className='profile--tags'
-					isEditable
+					isEditable={isEditable}
 					isRequestEnable={isRequestEnable}
 					dispatch={dispatch}
 					title={this.tagsTitles}
 					tags={tags}
 				/>
-				<NavLink to='/main'>
-					{search}
-				</NavLink>
+				<Button
+					className='profile--search'
+					compact
+				>
+					<NavLink to='/main'>
+						{search}
+					</NavLink>
+				</Button>
 			</div>
 		)
 	}
