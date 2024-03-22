@@ -63,7 +63,7 @@
 		"extract-text-webpack-plugin": "^3.0.0",
 		"file-loader": "^1.1.5",
 		"gulp": "^3.9.1",
-		"gulp-sass": "^3.1.0",
+		"gulp-sass": "^5.0.0",
 		"gulp-watch": "^4.3.11",
 		"html-loader": "^0.5.5",
 		"pm2": "^3.0.0",
@@ -78,7 +78,7 @@
 		"semantic-ui-react": "^0.79.0",
 		"semantic-ui-sass": "2.2.11",
 		"webpack": "^3.6.0",
-		"webpack-dev-middleware": "^1.12.0",
+		"webpack-dev-middleware": "^5.3.4",
 		"webpack-hot-middleware": "^2.19.1"
 	}
 }
